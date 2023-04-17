@@ -21,7 +21,7 @@ export const HeaderItem = styled.li `
         font-size: 1.1em;
         padding: 0.5em;
         background-color: black;;
-        transition: 0.5s;
+        transition: 0.2s;
     }
 `
 
