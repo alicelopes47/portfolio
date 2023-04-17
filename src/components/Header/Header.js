@@ -11,6 +11,7 @@ const Header = () => {
       <li>Oii</li>
       <li>Linda</li>
       <li>Perfeita</li>
+      <li>Maravilhosa amo</li>
     </ul>
     </S.HeaderNav> 
     
