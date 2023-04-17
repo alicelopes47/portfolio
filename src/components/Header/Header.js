@@ -1,18 +1,20 @@
 import React from 'react'
-import styled from "styled-components"
 import * as S from './Header_style'
+import logo from './../../imgs/logo.png'
 
 const Header = () => {
   return (
     <>
     <S.HeaderNav> 
-    <img src='' alt='' />
-    <ul>
-      <li>Oii</li>
-      <li>Linda</li>
-      <li>Perfeita</li>
-      <li>Maravilhosa amo</li>
-    </ul>
+    <S.Logo src={logo} alt='' />
+    <S.HeaderList>
+      <S.HeaderItem>Sobre</S.HeaderItem>
+      <S.HeaderItem>Experiência</S.HeaderItem>
+      <S.HeaderItem>Projetos</S.HeaderItem>
+      <S.HeaderItem>Tecnologias</S.HeaderItem>
+      <S.HeaderItem>Redes sociais</S.HeaderItem>
+      <S.HeaderItem>quem sou eu?</S.HeaderItem>
+    </S.HeaderList>
     </S.HeaderNav> 
     
     </>
