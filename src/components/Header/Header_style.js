@@ -3,24 +3,22 @@ import styled from "styled-components"
 export const HeaderNav = styled.nav`
     display: flex;
     align-items: center;
-    justify-content: space-around; 
+    justify-content: space-between; 
     background-color: #6a2e35;
+    padding: 1rem;
 `
 export const HeaderList = styled.ul`
     color: white;
     display: flex;
     font-size: 2em;
-    gap: 3em;
     list-style: none;
-    cursor: pointer;
 `
 export const HeaderItem = styled.li `
-    padding: 0.5em;
+    margin-left: 2rem;
     border-radius: 0.5em;
+    cursor: pointer;
     :hover { 
-        font-size: 1.1em;
-        padding: 0.5em;
-        background-color: black;;
+        font-size: 1.2em;
         transition: 0.2s;
     }
 `
@@ -28,4 +26,5 @@ export const HeaderItem = styled.li `
 export const Logo = styled.img `
     width: 8em;
     padding: 0.5em;
+    border-radius: 2em;
 `

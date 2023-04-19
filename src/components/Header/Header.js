@@ -13,7 +13,7 @@ const Header = () => {
       <S.HeaderItem>Projetos</S.HeaderItem>
       <S.HeaderItem>Tecnologias</S.HeaderItem>
       <S.HeaderItem>Redes sociais</S.HeaderItem>
-      <S.HeaderItem>quem sou eu?</S.HeaderItem>
+      <S.HeaderItem>Quem sou eu?</S.HeaderItem>
     </S.HeaderList>
     </S.HeaderNav> 
     
