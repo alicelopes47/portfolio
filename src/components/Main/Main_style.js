@@ -81,4 +81,5 @@ export const divLista = styled.div `
 
 export const StyleH1 = styled.h1 `
     font-size: 4em;
+    margin-right: 0.8em;
 `
