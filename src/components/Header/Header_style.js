@@ -2,10 +2,10 @@ import styled from "styled-components"
 
 export const HeaderNav = styled.nav`
     display: flex;
+    height: 100px;
     align-items: center;
     justify-content: space-between; 
     background-color: #6a2e35;
-    padding: 1rem;
 `
 export const HeaderList = styled.ul`
     color: white;
