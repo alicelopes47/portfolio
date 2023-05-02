@@ -38,10 +38,12 @@ const Main = () => {
               <S.DivCard>
                 <S.divLista>
                   <S.DivP>Lobo Guará</S.DivP>
+                  <p>Suporte Técnico</p>
                   <S.DivGray>Agosto de 2018 a janeiro de 2019</S.DivGray>
                 </S.divLista>
                 <S.divLista>
                   <S.DivP>Theia</S.DivP>
+                  <p>Estagiária</p>
                   <S.DivGray>Agosto de 2022 até o momento!</S.DivGray>
                 </S.divLista>
               </S.DivCard>

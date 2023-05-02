@@ -47,17 +47,20 @@ export const divThings = styled.div `
 
 export const DivExperience = styled.div `
     display: flex;
+    background-color: white;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    width: 60%;
+    padding: 2em;
+    border-radius: 2em;
 `
 
 export const DivExpe = styled.div `
     display: flex;
     padding: 2em;
     text-align: center;
-    background-color: rgb(160 185 198 / 48%);
+    background-color: rgb(33 5 54);
     font-size: 1em;
     color: black;
     align-items: center;
@@ -76,41 +79,40 @@ export const DivList = styled.div `
 
 export const DivP = styled.p ` 
     font-size: 2em;
-    color: black;
+    color: white;
 `
 
 export const DivGray = styled.p `
     font-size: 1em;
     color: grey;
-    margin-top: -1em;
+    margin-top: 0em;
+
 `
 
 export const divLista = styled.div `
-    background-color: white;
+    background-color: rgb(33 5 54);
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2em;
+    gap: 1em;
     height: 150px;
     padding: 1em;
     border-radius: 2em;
     margin-right: 4em;
-    :hover { 
-        background-color: rgb(160 185 198 / 48%);
-        padding: 1.3em;
-        transition: 0.1s
-    }
 `
 
 export const StyleH1 = styled.h1 `
     font-size: 4em;
+    color: rgb(33 5 54);
     margin-right: 0.8em;
     margin-bottom: 0.5em;
 `
 
 export const DivCard = styled.div `
     display: flex;
-    width: 40%;
+    padding: 2em;
+    width: 70%;
     justify-content: space-between;
     align-items: center;
 `
