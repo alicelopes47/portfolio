@@ -2,11 +2,20 @@ import styled from "styled-components"
 
 export const HeaderNav = styled.nav`
     display: flex;
-    height: 100px;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 10vh;
     align-items: center;
     justify-content: space-between; 
     background-color: #6a2e35;
 `
+
+export const link = styled.a `
+    color: inherit;
+    text-decoration: none;
+`
+
 export const HeaderList = styled.ul`
     color: white;
     display: flex;

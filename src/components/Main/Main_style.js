@@ -1,25 +1,23 @@
 import styled from "styled-components"
 
 export const DivAbout = styled.div `
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: solid black;
-`
-
-export const DevImg = styled.img `
-    width: 100%;    position: relative;
-    height: 100%;
+height: 80vh;
+background-image: url('./../../imgs/deve.jpg');
 `
 
 export const DivImg = styled.div `
-    position: absolute;
+    position: relative;
+    z-index: 1;
     display: flex;
-    font-size: 2em;
+    height: 40%;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
     flex-direction: column;
     background-color: white;
-    padding: 2em;
+    padding: 1em;
     border-radius: 2em;
 `
 
