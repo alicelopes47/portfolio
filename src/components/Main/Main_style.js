@@ -17,7 +17,8 @@ export const DivImg = styled.div `
     font-size: 1.5em;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: #07153e;
+    color: white;
     padding: 1em;
     border-radius: 2em;
 `
@@ -26,8 +27,8 @@ export const ButtonDefault = styled.button `
     height: 90px;
     font-size: 1em;
     width: 200px;
-    background-color: #756D54;
-    color: white;
+    background-color: white;
+    color: black;
     border-radius: 1em;
 `
 
@@ -60,7 +61,7 @@ export const DivExpe = styled.div `
     display: flex;
     padding: 2em;
     text-align: center;
-    background-color: rgb(33 5 54);
+    background-color: black;
     font-size: 1em;
     color: black;
     align-items: center;
@@ -90,13 +91,12 @@ export const DivGray = styled.p `
 `
 
 export const divLista = styled.div `
-    background-color: rgb(33 5 54);
+    background-color: black;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1em;
-    height: 150px;
     padding: 1em;
     border-radius: 2em;
     margin-right: 4em;
@@ -104,7 +104,7 @@ export const divLista = styled.div `
 
 export const StyleH1 = styled.h1 `
     font-size: 4em;
-    color: rgb(33 5 54);
+    color: black;
     margin-right: 0.8em;
     margin-bottom: 0.5em;
 `

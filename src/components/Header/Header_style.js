@@ -18,8 +18,7 @@ export const Header = styled.nav`
 export const logo = styled.a `
     position: relative;
     font-weight: 700;
-    color: #fff
-    font-style:
+    color: #fff;
     text-decoration: solid;
     font-size: 4em;
     text-transform: uppercase;
@@ -44,7 +43,7 @@ export const Headera = styled.a `
     position: relative;
     margin: 0 15px;
     text-decoration: none;
-    color: #fff
+    color: #fff;
     letter-spacing: 2px;
     font-weight: 500px;
     transition: 0.6s;
