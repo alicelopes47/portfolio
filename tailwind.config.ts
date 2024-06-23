@@ -7,6 +7,8 @@ const config: Config = {
       primary: "#CF96DF",
       primaryLight: "#F4DDFB",
       primaryBold: "#9D6BAB",
+      white: "#FFFFFF",
+      black: "#252525",
     },
     backgroundImage: {
       hexagonPattern: "var(--hexagon-pattern)",

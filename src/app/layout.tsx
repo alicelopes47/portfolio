@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import "./globals.css"
+import { Menu } from "./components/Menu/Menu"
 
 type ThemeTypes = "light" | "dark"
 
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${theme} bg-hexagonPattern`}>
-        <button onClick={defineTheme}>Ligar tema escuro</button>
+      <Menu />
         {children}
       </body>
     </html>
