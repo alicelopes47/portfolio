@@ -11,7 +11,7 @@ export const Menu = () => {
   const isSkills = pathname === '/skills'
   const isContact = pathname === '/contact'
   return (
-    <div className={`${productSansRegular.className} sticky top-0 w-full flex bg-primary text-white md:text-2xl text-xl pt-2 justify-center`}>
+    <div className={`${productSansRegular.className} sticky top-0 w-full flex bg-primary text-white md:text-2xl text-lg pt-2 justify-center`}>
       <a  className={`p-[1rem] hover:bg-primaryLight hover:text-black rounded-t-3xl md:p-[2rem] ${isHome ? ' bg-white text-black' : ''}`} href="/">Home</a>
       <a className={`p-[1rem] hover:bg-primaryLight hover:text-black rounded-t-3xl md:p-[2rem] ${isProjects ? ' bg-white text-black' : ''}`} href="/projects">Projetos</a>
       <a className={`p-[1rem] hover:bg-primaryLight hover:text-black rounded-t-3xl md:p-[2rem] ${isSkills ? ' bg-white text-black' : ''}`} href="/skills">Habilidades</a>
