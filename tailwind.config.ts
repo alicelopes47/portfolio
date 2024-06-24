@@ -14,7 +14,7 @@ const config: Config = {
       hexagonPattern: "var(--hexagon-pattern)",
     },
   },
-  darkMode: "class",
+  darkMode: "selector",
   plugins: [],
 }
 export default config
