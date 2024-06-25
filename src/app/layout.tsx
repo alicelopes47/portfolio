@@ -1,9 +1,11 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./globals.css"
 import { Menu } from "./components/Menu/Menu"
-
 type ThemeTypes = "light" | "dark"
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 export default function RootLayout({
   children,
@@ -11,7 +13,6 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const [theme, setTheme] = useState<ThemeTypes>("light")
-
   function defineTheme () { 
     if (theme === "light") {
       setTheme("dark")
@@ -19,6 +20,14 @@ export default function RootLayout({
       setTheme("light")
     }
   }
+
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 50,
+    });
+  }, []);
 
   return (
     <html lang="en">
