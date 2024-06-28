@@ -6,6 +6,7 @@ import Projects from "./projects/page"
 import { Menu } from "./components/Menu/Menu"
 import { useEffect, useState } from "react"
 import { LinksPT } from "./Domain"
+import { SocialLinks } from "./components/SocialLinks/SocialLinks"
 
 export default function Home() {
 	let [activeSection, setActiveSection] = useState("/")
@@ -52,6 +53,7 @@ export default function Home() {
 	return (
 		<>
 			<Menu links={linksPt} activeSection={activeSection} />
+      <SocialLinks />
 			<main className={`${kodchasan.className} pt-[10rem]`}>
 				<div
 					className={`md:w-[100vw] h-[100vh] flex px-2 flex-col items-center gap-12`}
