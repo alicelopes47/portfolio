@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Projects () {
     return (
-        <div id="projects" className="md:px-24 px-6">
+        <div className="h-[100vh] w-[100vw] md:px-24 px-6"  id="Projetos">
         <h1
           className={`md:text-[2.5rem] text-3xl text-primaryBold   md:text-start text-center md:mb-12 mb-8`}
         >

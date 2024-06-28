@@ -1,7 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
 import "./globals.css"
-import { Menu } from "./components/Menu/Menu"
 type ThemeTypes = "light" | "dark"
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -32,7 +31,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${theme} bg-hexagonPattern`}>
-      <Menu />
         {children}
       </body>
     </html>

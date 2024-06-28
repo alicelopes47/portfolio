@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 html {
-  --scroll-behavior: smooth!important;
-  scroll-behavior: smooth!important;
-  } 
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
 
 .light {
-  --hexagon-pattern: url('/assets/lightmode.svg');
+  --hexagon-pattern: url("/assets/lightmode.svg");
 }
 
 .dark {
-  --hexagon-pattern: url('/assets/darkmode.svg');
+  --hexagon-pattern: url("/assets/darkmode.svg");
 }
 
 @layer utilities {
