@@ -13,7 +13,7 @@ interface Links {
 export const Menu = ({ links, activeSection }: Links) => {
 	return (
 		<div
-			className={`${productSansRegular.className} sticky z-50 top-0 w-full flex bg-primary text-white md:text-2xl text-lg pt-2 justify-center`}>
+			className={`${productSansRegular.className} fixed z-50 top-0 w-full flex bg-primary text-white md:text-2xl text-lg pt-2 justify-center`}>
 			{links.map((link, index) => (
 				<Link	
 					href={`#${link}`}
