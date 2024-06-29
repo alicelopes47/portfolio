@@ -53,12 +53,17 @@ export default function Home() {
 	return (
 		<>
 			<Menu links={linksPt} activeSection={activeSection} />
-      <SocialLinks />
+			<SocialLinks />
 			<main className={`${kodchasan.className} pt-[10rem]`}>
 				<div
 					className={`md:w-[100vw] h-[100vh] flex px-2 flex-col items-center gap-12`}
-					data-aos="fade-left">
-					<h1 data-aos="fade-up" 					id={LinksPT.HOME} className={`md:text-[3rem] scroll-mt-[10rem] text-center text-3xl`}>
+					data-aos="fade-left"
+				>
+					<h1
+						data-aos="fade-up"
+						id={LinksPT.HOME}
+						className={`md:text-[3rem] scroll-mt-[10rem] text-center text-3xl`}
+					>
 						Olá, meu nome é <span className="text-primaryBold">Alice Lopes</span>
 					</h1>
 					<Lottie
@@ -70,7 +75,8 @@ export default function Home() {
 						className={`md:text-[3rem] text-2xl text-primaryBold`}
 						data-aos="fade-down"
 						data-aos-easing="linear"
-						data-aos-duration="1500">
+						data-aos-duration="1500"
+					>
 						Desenvolvedora web.
 					</h1>
 				</div>
