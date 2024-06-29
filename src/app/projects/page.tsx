@@ -11,10 +11,10 @@ export default function Projects () {
         </h1>
         <div className="md:grid grid-cols-3 grid-rows-1 md:gap-12 gap-4 flex flex-col"> {/* div wrapper */} 
           {MockProjects.map((project, index) => (
-            <div data-aos="fade-up" className="w-full flex flex-col items-center hover:animate-pulse bg-[#f6effa] pb-4 px-2 pt-2 rounded-2xl cursor-pointer hover:scale-105">
-            <Image src={project.img} className="rounded-2xl" alt={project.title} />
-            <p className="text-[1.2rem] mt-4 font-normal italic text-[#3e2045]">{project.title}</p>
-          </div>
+            <div data-aos="fade-up" key={index} className="w-full flex flex-col items-center hover:animate-pulse bg-[#f6effa] pb-4 px-2 pt-2 rounded-2xl cursor-pointer hover:scale-105">
+              <Image src={project.img} className="rounded-2xl" alt={project.title} />
+              <p className="text-[1.2rem] mt-4 font-normal italic text-[#3e2045]">{project.title}</p>
+            </div>
           ))}
         </div>
       </div>
