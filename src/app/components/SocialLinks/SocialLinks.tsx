@@ -9,17 +9,17 @@ export function SocialLinks() {
 		>
 			<LinkWithAlert
 				href="https://www.linkedin.com/in/alice-lopes-%F0%9F%8F%B3%EF%B8%8F%E2%80%8D%E2%9A%A7%EF%B8%8F-423a1a249/"
-				icon={<LiaLinkedin className="md:text-4xl text-3xl text-primary" />}
+				icon={<LiaLinkedin className="md:text-4xl text-3xl text-icons" />}
 				message="Linkedin"
 			/>
 			<LinkWithAlert
 				href="https://github.com/alicelopes47"
-				icon={<LiaGithub className="md:text-4xl text-3xl text-primary" />}
+				icon={<LiaGithub className="md:text-4xl text-3xl text-icons" />}
 				message="Github"
 			/>
 			<LinkWithAlert
 				href="https://github.com/alicelopes47"
-				icon={<LiaFileArchive className="md:text-4xl text-3xl text-primary" />}
+				icon={<LiaFileArchive className="md:text-4xl text-3xl text-icons" />}
 				message="Curriculo"
 			/>
 		</div>

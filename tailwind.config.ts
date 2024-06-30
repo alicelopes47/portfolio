@@ -10,10 +10,12 @@ const config: Config = {
   content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     colors: {
-      primary: "#CF96DF",
+      primary: "var(--primary)",
       primaryLight: "#F4DDFB",
-      primaryBold: "#9D6BAB",
+	  highlightText: "var(--highlight-text)",
+      primaryBold: "var(--primary-bold)",
       lightText: "var(--light-text)",
+	  icons: "var(--icons)",
 	  darkText: "var(--dark-text)",
       black: "#252525",
     },
