@@ -6,7 +6,7 @@ export const Meteors = ({
     className,
 }: {
     number?: number;
-    indx: number,
+    indx: string,
     className?: string;
 }) => {
     const meteors = new Array(number || 20).fill(true);
