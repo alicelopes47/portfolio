@@ -60,7 +60,7 @@ export interface CardProps {
 
 const Card = ({ title, description, icon, children }: CardProps) => {
 	return (
-		<div className="transition-all hover:animate-pulse hover:bg-[#f6effa] rounded-2xl hover:scale-105">
+		<div id={LinksPT.SKILLS} className="transition-all hover:animate-pulse hover:bg-[#f6effa] rounded-2xl hover:scale-105">
 			<div
 				data-aos="fade-up"
 				className="rounded-2xl flex text-darkText flex-col p-4 h-[100%] cursor-pointer hover:bg-primaryLight transition duration-200h-full overflow-hidden bg-lightText border border-primary"
