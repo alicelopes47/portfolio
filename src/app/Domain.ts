@@ -8,34 +8,21 @@ export enum LinksPT {
     CONTACT = "Contato",
 }
 
-export interface Projects {
+export interface ProjectsType {
+    id?: number;
     title: string;
     description: string;
-    img: StaticImageData;
+    image: {
+        url: string;
+        width: number;
+        height: number;
+    };
 };
 
 export interface Skills {
     title: string;
     description: string;
 };
-
-export const MockProjects: Projects[] = [
-    {
-        title: "Projeto Artemis",
-        description: "Projeto Artemis é um projeto de desenvolvimento de software para a empresa Artemis.",
-        img: require("../../public/assets/artemis.png"),
-    },
-    {
-        title: "Projeto Convívio",
-        description: "Projeto Convívio é um projeto de desenvolvimento de software para a empresa Convívio.",
-        img: require("../../public/assets/convivio.png"),
-    },
-    {
-        title: "Tia Rosa Café",
-        description: "Tia Rosa Café é um projeto de desenvolvimento de software para a empresa Tia Rosa.",
-        img: require("../../public/assets/tiarosa.png"),
-    },
-];
 
 export const MockSkills: Skills[] = [
     {

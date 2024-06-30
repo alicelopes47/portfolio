@@ -2,16 +2,22 @@
 import { Kodchasan } from "next/font/google"
 const kodchasan = Kodchasan({ subsets: ["latin"], weight: ["200"] })
 import Lottie from "@lottielab/lottie-player/react"
-import Projects from "./projects/page"
+import Projects from "./sections/projects"
 import { Menu } from "./components/Menu/Menu"
 import { useEffect, useState } from "react"
 import { LinksPT } from "./Domain"
 import { SocialLinks } from "./components/SocialLinks/SocialLinks"
-import SkillsPage from "./skills/page"
+import SkillsPage from "./sections/skills"
+import AOS from "aos";
 
 export default function Home() {
 	let [activeSection, setActiveSection] = useState("/")
 	let linksPt = [LinksPT.HOME, LinksPT.SKILLS, LinksPT.PROJECTS, LinksPT.CONTACT]
+
+	useEffect(() => {
+		AOS.init()
+	}, [])
+
 
 	useEffect(() => {
 		let home = document.getElementById(LinksPT.HOME)
@@ -53,7 +59,7 @@ export default function Home() {
 
 	return (
 		<>
-			<main className={`${kodchasan.className} pt-[10rem]`}>
+			<main className={`${kodchasan.className}  bg-hexagonPattern pt-[10rem] light`}>
 				<Menu links={linksPt} activeSection={activeSection} />
 				<SocialLinks />
 				<div
