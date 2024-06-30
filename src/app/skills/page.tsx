@@ -3,11 +3,11 @@ import { LinksPT, type Skills } from "../Domain"
 import { Meteors } from "../ui/meteors"
 import { LiaReact } from "react-icons/lia"
 
-interface Props {
+interface SkillsPageProps {
 	skills: Skills[]
 }
 
-export default function SkillsPage({ skills }: Props) {
+export default function SkillsPage({ skills }: SkillsPageProps) {
 	return (
 		<div className="md:px-24 px-12 scroll-mt-[10rem]" id={LinksPT.SKILLS}>
 			<h1 className={`md:text-[2.5rem] text-3xl text-primaryBold md:text-start text-center  md:mb-12 mb-8`}>
