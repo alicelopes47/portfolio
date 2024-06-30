@@ -1,20 +1,15 @@
-import Image from "next/image"
-import { LinksPT, type Skills } from "../Domain"
+import { LinksPT, MockSkills, type Skills } from "../Domain"
 import { Meteors } from "../ui/meteors"
 import { LiaReact } from "react-icons/lia"
 
-interface SkillsPageProps {
-	skills: Skills[]
-}
-
-export const SkillsPage = ({ skills }: SkillsPageProps) => {
+export const SkillsPage = () => {
 	return (
 		<div className="md:px-24 px-12 scroll-mt-[10rem]" id={LinksPT.SKILLS}>
 			<h1 className={`md:text-[2.5rem] text-3xl text-primaryBold md:text-start text-center  md:mb-12 mb-8`}>
 				habilidades
 			</h1>
 			<div className="mt-5 grid gap-5 grid-cols-1 md:grid-cols-3 w-full">
-				{skills.map((skill, index) => (
+				{MockSkills.map((skill, index) => (
 					<>
 						<Card
 							title={skill.title}
