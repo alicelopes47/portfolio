@@ -9,10 +9,14 @@ html {
 
 .light {
   --hexagon-pattern: url("/assets/lightmode.svg");
+  --light-text: #FFF;
+  --dark-text: #000;
 }
 
 .dark {
   --hexagon-pattern: url("/assets/darkmode.svg");
+  --light-text: #000;
+  --dark-text: #FFF;
 }
 
 @layer utilities {

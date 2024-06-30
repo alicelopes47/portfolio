@@ -13,7 +13,8 @@ const config: Config = {
       primary: "#CF96DF",
       primaryLight: "#F4DDFB",
       primaryBold: "#9D6BAB",
-      white: "#FFFFFF",
+      lightText: "var(--light-text)",
+	  darkText: "var(--dark-text)",
       black: "#252525",
     },
     backgroundImage: {

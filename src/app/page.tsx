@@ -5,13 +5,13 @@ import Lottie from "@lottielab/lottie-player/react"
 import Projects from "./projects/page"
 import { Menu } from "./components/Menu/Menu"
 import { useEffect, useState } from "react"
-import { LinksPT, MockSkills } from "./Domain"
+import { LinksPT } from "./Domain"
 import { SocialLinks } from "./components/SocialLinks/SocialLinks"
 import SkillsPage from "./skills/page"
 
 export default function Home() {
 	let [activeSection, setActiveSection] = useState("/")
-	let linksPt = [LinksPT.HOME, LinksPT.PROJECTS, LinksPT.SKILLS, LinksPT.CONTACT]
+	let linksPt = [LinksPT.HOME, LinksPT.SKILLS, LinksPT.PROJECTS, LinksPT.CONTACT]
 
 	useEffect(() => {
 		let home = document.getElementById(LinksPT.HOME)
@@ -19,7 +19,7 @@ export default function Home() {
 		let skills = document.getElementById(LinksPT.SKILLS)
 		let contact = document.getElementById(LinksPT.CONTACT)
 
-		let sections = [home, projects, skills, contact]
+		let sections = [home, skills, projects, contact]
 
 		const observerOptions = {
 			root: null,
@@ -53,9 +53,9 @@ export default function Home() {
 
 	return (
 		<>
-			<Menu links={linksPt} activeSection={activeSection} />
-			<SocialLinks />
 			<main className={`${kodchasan.className} pt-[10rem]`}>
+				<Menu links={linksPt} activeSection={activeSection} />
+				<SocialLinks />
 				<div
 					className={`md:w-[100vw] h-[100vh] flex px-2 flex-col items-center gap-12`}
 					data-aos="fade-left"
@@ -85,12 +85,12 @@ export default function Home() {
 					data-aos="fade-up"
 					className="md:w-1/2 w-3/4 mx-auto my-12 border-[1.2px] border-primaryLight"
 				/>
-				<Projects />
+				<SkillsPage />
 				<hr
 					data-aos="fade-up"
 					className="md:w-1/2 w-3/4 mx-auto my-12 border-[1.2px] border-primaryLight"
 				/>
-				<SkillsPage />
+				<Projects />
 			</main>
 		</>
 	)

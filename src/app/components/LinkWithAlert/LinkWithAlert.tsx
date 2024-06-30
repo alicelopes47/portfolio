@@ -36,10 +36,10 @@ export const Alert = ({
 }: AlertProps) => {
 
 	return (
-		<div className="bg-black rounded-2xl absolute left-[2.5rem] bottom-[-5px]" data-aos="fade-left">
-			<IoMdArrowDropleft className="text-black text-3xl absolute left-[-15px] top-[10%]" />
+		<div className="bg-darkText rounded-2xl absolute left-[2.5rem] bottom-[-5px]" data-aos="fade-left">
+			<IoMdArrowDropleft className="text-darkText text-3xl absolute left-[-15px] top-[10%]" />
 			<div className="flex items-center justify-center p-2 relative">
-				<h1 className="text-white text-md">
+				<h1 className="text-lightText text-md">
 					{message || "Conheça"}
 				</h1>
 			</div>
