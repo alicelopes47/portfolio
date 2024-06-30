@@ -5,8 +5,9 @@ import Lottie from "@lottielab/lottie-player/react"
 import Projects from "./projects/page"
 import { Menu } from "./components/Menu/Menu"
 import { useEffect, useState } from "react"
-import { LinksPT } from "./Domain"
+import { LinksPT, MockSkills } from "./Domain"
 import { SocialLinks } from "./components/SocialLinks/SocialLinks"
+import SkillsPage from "./skills/page"
 
 export default function Home() {
 	let [activeSection, setActiveSection] = useState("/")
@@ -82,9 +83,14 @@ export default function Home() {
 				</div>
 				<hr
 					data-aos="fade-up"
-					className="md:w-1/2 w-3/4 mx-auto mb-12 border-[1.2px] border-primaryLight"
+					className="md:w-1/2 w-3/4 mx-auto my-12 border-[1.2px] border-primaryLight"
 				/>
 				<Projects />
+				<hr
+					data-aos="fade-up"
+					className="md:w-1/2 w-3/4 mx-auto my-12 border-[1.2px] border-primaryLight"
+				/>
+				<SkillsPage skills={MockSkills} />
 			</main>
 		</>
 	)

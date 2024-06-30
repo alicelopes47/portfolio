@@ -1,9 +1,14 @@
 import Image from "next/image";
+import type { Projects } from "../Domain";
 import { LinksPT, MockProjects } from "../Domain";
+
+interface Props {
+    projects: Projects[];
+}
 
 export default function Projects () {
     return (
-        <div className="md:px-24 px-6 scroll-mt-[10rem]"  id={LinksPT.PROJECTS}>
+        <div className="md:px-24 px-12 scroll-mt-[10rem]"  id={LinksPT.PROJECTS}>
         <h1
           className={`md:text-[2.5rem] text-3xl text-primaryBold   md:text-start text-center md:mb-12 mb-8`}
         >
