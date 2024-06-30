@@ -7,7 +7,7 @@ import { Menu } from "./components/Menu/Menu"
 import { useEffect, useState } from "react"
 import { LinksPT, MockSkills } from "./Domain"
 import { SocialLinks } from "./components/SocialLinks/SocialLinks"
-import { SkillsPage } from "./skills/page"
+import SkillsPage from "./skills/page"
 
 export default function Home() {
 	let [activeSection, setActiveSection] = useState("/")
