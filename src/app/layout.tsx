@@ -11,6 +11,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <title>Alice Lopes</title>
       </head>
       <body className={`bg-hexagonPattern`}>
         {children}

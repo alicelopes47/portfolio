@@ -1,2 +1,2 @@
-// TODO: mudar nome da aba do site
-// TODO: adicionar um loading geral
+// adicionar favicon
+// adicionar barra que mostra o quanto tenho de nivel na skill
