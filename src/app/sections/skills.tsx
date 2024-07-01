@@ -3,16 +3,19 @@ import { performRequest } from "../../../lib/datocms"
 import { LinksPT, SkillsType } from "../Domain"
 import { FontIcon } from "../components/FontIcon/FontIcon"
 import { Meteors } from "../ui/meteors"
-import { LiaReact } from "react-icons/lia"
+import { ProgressBar } from "../components/ProgressBar"
 
 const SKILLS_CONTENT = `
   query Skills {
-    allSkills {
+    allSkills(
+	  orderBy: proficiency_DESC
+	) {
       id
       name
       description
 	  icon
 	  fullDescription
+	  proficiency
     }
   }`
 
@@ -37,6 +40,7 @@ function Skills () {
 				{skills?.map((skill : SkillsType) => (
 					<>
 						<Card
+							proficiency={skill.proficiency}
 							title={skill.name}
 							icon={skill.icon}
 							description={skill.description}
@@ -55,20 +59,25 @@ export interface CardProps {
 	title: string
 	description: string
 	icon: string
+	proficiency: number
 	children: React.ReactNode
 }
 
-const Card = ({ title, description, icon, children }: CardProps) => {
+const Card = ({ title, description, icon, children, proficiency }: CardProps) => {
 	return (
 		<div id={LinksPT.SKILLS} className="transition-all hover:animate-pulse hover:bg-[#f6effa] rounded-2xl hover:scale-105">
 			<div
 				data-aos="fade-up"
 				className="rounded-2xl flex text-darkText flex-col p-4 h-[100%] cursor-pointer hover:bg-primaryLight transition duration-200h-full overflow-hidden bg-lightText border border-primary"
 			>
+				<div className="flex justify-between items-start">
 				<FontIcon iconType={icon} />
+				<ProgressBar proficiency={proficiency} />
+				</div>
 				<h1 className="font-bold text-start mt-4">{title}</h1>
-				<h1>{description}</h1>
+				<h1 className="mb-8">{description}</h1>
 				{children}
+
 			</div>
 		</div>
 	)

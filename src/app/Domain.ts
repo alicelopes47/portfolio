@@ -25,4 +25,5 @@ export interface SkillsType {
     description: string;
     icon: string;
     fullDescription: string;
+    proficiency: number;
 };
