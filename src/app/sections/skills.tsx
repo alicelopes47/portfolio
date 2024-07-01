@@ -75,7 +75,7 @@ const Card = ({ title, description, icon, children, proficiency }: CardProps) =>
 				<ProgressBar proficiency={proficiency} />
 				</div>
 				<h1 className="font-bold text-start mt-4">{title}</h1>
-				<h1 className="mb-8">{description}</h1>
+				<h1>{description}</h1>
 				{children}
 
 			</div>
