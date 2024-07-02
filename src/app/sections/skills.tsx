@@ -19,25 +19,27 @@ const SKILLS_CONTENT = `
     }
   }`
 
-  async function fetchSkills() {
-	const response = await performRequest({ query: SKILLS_CONTENT });
-	return response.allSkills;
-  }
+async function fetchSkills() {
+	const response = await performRequest({ query: SKILLS_CONTENT })
+	return response.allSkills
+}
 
-function Skills () {
-	const [skills, setSkills] = useState([]);
-  
+function Skills() {
+	const [skills, setSkills] = useState([])
+
 	useEffect(() => {
-	  fetchSkills().then((skills) => setSkills(skills));
-	}, []);
+		fetchSkills().then((skills) => setSkills(skills))
+	}, [])
 
 	return (
 		<div className="md:px-24 px-12 scroll-mt-[10rem]" id={LinksPT.SKILLS}>
-			<h1 className={`md:text-[2.5rem] text-3xl text-primaryBold md:text-start text-center  md:mb-12 mb-8`}>
+			<h1
+				className={`md:text-[2.5rem] text-3xl text-primaryBold md:text-start text-center  md:mb-12 mb-8`}
+			>
 				habilidades
 			</h1>
 			<div className="mt-5 grid gap-5 grid-cols-1 md:grid-cols-3 w-full">
-				{skills?.map((skill : SkillsType) => (
+				{skills?.map((skill: SkillsType) => (
 					<>
 						<Card
 							proficiency={skill.proficiency}
@@ -65,22 +67,24 @@ export interface CardProps {
 
 const Card = ({ title, description, icon, children, proficiency }: CardProps) => {
 	return (
-		<div id={LinksPT.SKILLS} className="transition-all hover:animate-pulse hover:bg-[#f6effa] rounded-2xl hover:scale-105">
+		<div
+			id={LinksPT.SKILLS}
+			className="transition-all hover:animate-pulse hover:bg-[#f6effa] rounded-2xl hover:scale-105"
+		>
 			<div
 				data-aos="fade-up"
 				className="rounded-2xl flex text-darkText flex-col p-4 h-[100%] cursor-pointer hover:bg-primaryLight transition duration-200h-full overflow-hidden bg-lightText border border-primary"
 			>
 				<div className="flex justify-between items-start">
-				<FontIcon iconType={icon} />
-				<ProgressBar proficiency={proficiency} />
+					<FontIcon iconType={icon} />
+					<ProgressBar proficiency={proficiency} />
 				</div>
 				<h1 className="font-bold text-start mt-4">{title}</h1>
 				<h1>{description}</h1>
 				{children}
-
 			</div>
 		</div>
 	)
 }
 
-export default Skills;
+export default Skills

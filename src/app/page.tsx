@@ -9,8 +9,11 @@ import { LinksPT } from "./Domain"
 import { SocialLinks } from "./components/SocialLinks/SocialLinks"
 import SkillsPage from "./sections/skills"
 import AOS from "aos";
+import useIsMobile from "./utils/UseIsMobile"; 
+import DropDown from "./components/DropDown"
 
 export default function Home() {
+	const isMobile = useIsMobile(); 
 	let [activeSection, setActiveSection] = useState("/")
 	let linksPt = [LinksPT.HOME, LinksPT.SKILLS, LinksPT.PROJECTS, LinksPT.CONTACT]
 
@@ -60,7 +63,7 @@ export default function Home() {
 	return (
 		<>
 			<main className={`${kodchasan.className}  bg-hexagonPattern pt-[10rem] light`}>
-				<Menu links={linksPt} activeSection={activeSection} />
+				{isMobile ? <DropDown links={linksPt} activeSection={activeSection} /> : <Menu activeSection={activeSection} links={linksPt} /> }
 				<SocialLinks />
 				<div
 					className={`md:w-[100vw] h-[100vh] flex px-2 flex-col items-center gap-12`}
