@@ -11,6 +11,7 @@ import SkillsPage from "./sections/skills"
 import AOS from "aos";
 import useIsMobile from "./utils/UseIsMobile"; 
 import DropDown from "./components/DropDown"
+import { LiaCatSolid, LiaCodeSolid, LiaGamepadSolid, LiaHeadphonesSolid, LiaKeyboard, LiaRocketSolid } from "react-icons/lia"
 
 export default function Home() {
 	const isMobile = useIsMobile(); 
@@ -62,9 +63,27 @@ export default function Home() {
 
 	return (
 		<>
-			<main className={`${kodchasan.className}  bg-hexagonPattern pt-[10rem] light`}>
+			<main className={`${kodchasan.className} bg-hexagonPattern relative pt-[10rem] light`}>
 				{isMobile ? <DropDown links={linksPt} activeSection={activeSection} /> : <Menu activeSection={activeSection} links={linksPt} /> }
-				<SocialLinks />
+				<SocialLinks />	
+				<span className="left-[15%] -rotate-45 absolute md:top-[7%] top-[10%]">
+					<LiaGamepadSolid data-aos="fade-right" data-aos-delay="1000"  className="text-primary md:text-9xl text-5xl " />
+				</span>
+				<span className="md:left-[15%] left-[5%] md:-rotate-45 -rotate-45 absolute md:top-[25%] top-[3%]">
+					<LiaCodeSolid data-aos="fade-right" data-aos-delay="1000"  className="text-primary text-6xl" />
+				</span>
+				<span className="rotate-6 absolute md:top-[15%] top-[3%] md:left-[5%] left-[45%]">
+					<LiaKeyboard data-aos="fade-right" data-aos-delay="1000"  className="text-primary md:text-8xl text-4xl" />
+				</span>
+				<span className="right-[10%] rotate-6 absolute md:top-[40%] top-[3%]">
+					<LiaHeadphonesSolid data-aos="fade-left" data-aos-delay="1500"  className="text-primary md:text-9xl text-4xl" />
+				</span>
+				<span className="right-[25%] absolute md:top-[30%] top-[10%]">
+					<LiaRocketSolid data-aos="fade-left" data-aos-delay="1500"  className="text-primary md:text-8xl text-4xl" />
+				</span>
+				<span className="right-[5%] -rotate-45 absolute md:top-[25%] top-[9%]">
+					<LiaCatSolid data-aos="fade-left" data-aos-delay="1500"  className="text-primary md:text-6xl text-3xl" />
+				</span>
 				<div
 					className={`md:w-[100vw] h-[100vh] flex px-2 flex-col items-center gap-12`}
 					data-aos="fade-left"
@@ -79,7 +98,7 @@ export default function Home() {
 					<Lottie
 						src="https://cdn.lottielab.com/l/3KEkh3sM9Tnhxu.json"
 						autoplay
-						className="md:w-[25%] w-[85%]"
+						className="md:w-[25%] w-[85%] pt-10"
 					/>
 					<h1
 						className={`md:text-[3rem] text-2xl text-primaryBold`}
