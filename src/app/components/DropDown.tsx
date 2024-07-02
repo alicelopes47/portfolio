@@ -33,13 +33,13 @@ const DropDown = ({ links, activeSection }: Props) => {
 				<FaBars className="text-2xl text-lightText" />
 			</div>
 			{isOpen && (
-				<div ref={navbarRef} data-aos="fade-right" className="bg-primary flex fixed top-0 z-50 h-full flex-col w-2/6 justify-start pt-[20%] items-start pl-4">
+				<div ref={navbarRef} data-aos="fade-right" className="bg-primary flex fixed top-0 z-50 h-full flex-col w-[40%] justify-start pt-[20%] items-start">
 					{links.map((link, index) => (
 						<Link
 							key={index}
                             onClick={handleClose}
 							href={`#${link}`}
-							className={`text-start text-xl pt-12 hover:text-lightText ${activeSection == link ? " text-lightText" : ""}`}
+							className={`text-start ml-7 text-xl pt-12 hover:text-lightText ${activeSection == link ? " text-lightText" : ""}`}
 						>
 							{link}
 						</Link>
