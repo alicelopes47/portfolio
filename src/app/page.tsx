@@ -48,7 +48,7 @@ export default function Home() {
 
 	return (
 		<>
-			<main className={`${kodchasan.className} bg-hexagonPattern relative pt-[10rem] light`}>
+			<main className={`${kodchasan.className} bg-hexagonPattern relative md:pt-[10rem] pt-[5em] light`}>
 				{isMobile ? (
 					<DropDown
 						links={isEnUs ? linksUsArray : linksPtArray}
@@ -61,7 +61,7 @@ export default function Home() {
 					/>
 				)}
 				<SocialLinks />
-				<div className="fixed bottom-10 right-10 z-50">
+				<div className="fixed md:bottom-10 bottom-4 md:right-10 right-4 z-50">
 					<Toggle
 						color="violet"
 						size={'lg'}

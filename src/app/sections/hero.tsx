@@ -33,7 +33,7 @@ function Hero({ isEnUs }: SectionProps) {
 
 	return (
 		<div
-			className={`md:w-[100vw] h-[90vh] flex px-2 flex-col items-center gap-12`}
+			className={`md:w-[100vw] md:h-[90vh] w-full h-[75vh] flex px-2 flex-col items-center gap-12`}
 			data-aos="fade-left"
 		>
 			<h1
