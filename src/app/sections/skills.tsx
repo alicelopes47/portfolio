@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { performRequest } from "../../../lib/datocms"
-import { LinksPT, SkillsType } from "../Domain"
+import { LinksPT, SkillsType, hrefs } from "../Domain"
 import { FontIcon } from "../components/FontIcon/FontIcon"
 import { Meteors } from "../ui/meteors"
 import { ProgressBar } from "../components/ProgressBar"
@@ -15,24 +15,44 @@ const SKILLS_CONTENT = `
       description
 	  icon
 	  fullDescription
+	  fullDescriptionUs
+	  descriptionUs
 	  proficiency
     }
   }`
 
-async function fetchSkills() {
-	const response = await performRequest({ query: SKILLS_CONTENT })
+const SKILLS_CONTENT_US = `
+  query Skills {
+    allSkills(
+	  orderBy: proficiency_DESC
+	) {
+      id
+      name
+	  icon
+	  fullDescriptionUs
+	  descriptionUs
+	  proficiency
+    }
+  }`
+
+async function fetchSkills(isEnUs: boolean) {
+	const response = await performRequest({ query: isEnUs ? SKILLS_CONTENT_US : SKILLS_CONTENT})
 	return response.allSkills
 }
 
-function Skills() {
+interface SkillsProps {
+	isEnUs: boolean
+}
+
+function Skills({ isEnUs } : SkillsProps) {
 	const [skills, setSkills] = useState([])
 
 	useEffect(() => {
-		fetchSkills().then((skills) => setSkills(skills))
-	}, [])
+		fetchSkills(isEnUs).then((skills) => setSkills(skills))
+	}, [isEnUs])
 
 	return (
-		<div className="md:px-24 px-12 scroll-mt-[10rem]" id={LinksPT.SKILLS}>
+		<div className="md:px-24 px-12 scroll-mt-[10rem]" id={hrefs.SKILLS}>
 			<h1
 				className={`md:text-[2.5rem] text-3xl text-primaryBold md:text-start text-center  md:mb-12 mb-8`}
 			>
@@ -45,7 +65,7 @@ function Skills() {
 							proficiency={skill.proficiency}
 							title={skill.name}
 							icon={skill.icon}
-							description={skill.description}
+							description={skill.description || skill.descriptionUs}
 							key={skill.id}
 						>
 							<Meteors indx={skill.id} number={5} />
@@ -68,7 +88,7 @@ export interface CardProps {
 const Card = ({ title, description, icon, children, proficiency }: CardProps) => {
 	return (
 		<div
-			id={LinksPT.SKILLS}
+			id={hrefs.SKILLS}
 			className="transition-all hover:animate-pulse hover:bg-[#f6effa] rounded-2xl hover:scale-105"
 		>
 			<div

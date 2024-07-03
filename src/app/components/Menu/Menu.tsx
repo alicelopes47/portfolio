@@ -1,3 +1,4 @@
+import { hrefsArray } from "@/app/Domain"
 import productSans from "next/font/local"
 import Link from "next/link"
 
@@ -16,11 +17,11 @@ export const Menu = ({ links, activeSection }: Links) => {
 			className={`${productSansRegular.className} fixed z-50 top-0 w-full flex bg-primary text-highlightText md:text-2xl text-lg pt-2 justify-center`}>
 			{links.map((link, index) => (
 				<Link	
-					href={`#${link}`}
+					href={`#${hrefsArray[index]}`}
 					key={index}
 					scroll
 					className={`p-[1rem] hover:bg-primaryLight hover:text-darkText rounded-t-3xl md:p-[2rem] ${
-						activeSection == link ? " bg-lightText text-darkText" : ""
+						activeSection == hrefsArray[index] ? " bg-lightText text-darkText" : ""
 					}`}>
 					{link}
 				</Link>
