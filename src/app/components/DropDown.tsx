@@ -46,6 +46,7 @@ const DropDown = ({ links, activeSection }: Props) => {
 						<Link
 							href={`#${hrefsArray[index]}`}
 							onClick={handleClose}
+							key={index}
 							className={`text-start ml-7 text-xl pt-12 hover:text-lightText ${
 								activeSection == hrefsArray[index] ? ' text-lightText' : ''
 							}`}
