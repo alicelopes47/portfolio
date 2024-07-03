@@ -3,7 +3,7 @@ import productSans from "next/font/local"
 import Link from "next/link"
 
 const productSansRegular = productSans({
-	src: "../../../../public/fonts/product-sans-regular.ttf",
+	src: "../../../public/fonts/product-sans-regular.ttf",
 })
 
 interface Links {
