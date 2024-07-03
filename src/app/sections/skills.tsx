@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
-import { performRequest } from "../../../lib/datocms"
-import { LinksPT, SkillsType, hrefs } from "../Domain"
-import { FontIcon } from "../components/FontIcon/FontIcon"
-import { Meteors } from "../ui/meteors"
-import { ProgressBar } from "../components/ProgressBar"
+import { useEffect, useState } from 'react'
+import { performRequest } from '../../../lib/datocms'
+import { LinksPT, LinksUS, SectionProps, SkillsType, hrefs } from '../Domain'
+import { FontIcon } from '../components/FontIcon'
+import { Meteors } from '../ui/meteors'
+import { ProgressBar } from '../components/ProgressBar'
 
 const SKILLS_CONTENT = `
   query Skills {
@@ -36,15 +36,11 @@ const SKILLS_CONTENT_US = `
   }`
 
 async function fetchSkills(isEnUs: boolean) {
-	const response = await performRequest({ query: isEnUs ? SKILLS_CONTENT_US : SKILLS_CONTENT})
+	const response = await performRequest({ query: isEnUs ? SKILLS_CONTENT_US : SKILLS_CONTENT })
 	return response.allSkills
 }
 
-interface SkillsProps {
-	isEnUs: boolean
-}
-
-function Skills({ isEnUs } : SkillsProps) {
+function Skills({ isEnUs }: SectionProps) {
 	const [skills, setSkills] = useState([])
 
 	useEffect(() => {
@@ -52,11 +48,14 @@ function Skills({ isEnUs } : SkillsProps) {
 	}, [isEnUs])
 
 	return (
-		<div className="md:px-24 px-12 scroll-mt-[10rem]" id={hrefs.SKILLS}>
+		<div
+			className="md:px-24 px-12 scroll-mt-[10rem]"
+			id={hrefs.SKILLS}
+		>
 			<h1
 				className={`md:text-[2.5rem] text-3xl text-primaryBold md:text-start text-center  md:mb-12 mb-8`}
 			>
-				habilidades
+				{isEnUs ? LinksUS.SKILLS.toLowerCase() : LinksPT.SKILLS.toLowerCase()}
 			</h1>
 			<div className="mt-5 grid gap-5 grid-cols-1 md:grid-cols-3 w-full">
 				{skills?.map((skill: SkillsType) => (
@@ -68,7 +67,10 @@ function Skills({ isEnUs } : SkillsProps) {
 							description={skill.description || skill.descriptionUs}
 							key={skill.id}
 						>
-							<Meteors indx={skill.id} number={5} />
+							<Meteors
+								indx={skill.id}
+								number={5}
+							/>
 						</Card>
 					</>
 				))}

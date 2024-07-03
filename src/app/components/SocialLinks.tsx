@@ -1,5 +1,5 @@
-import { LiaGithub, LiaLinkedin, LiaFileArchive } from "react-icons/lia"
-import { LinkWithAlert } from "../LinkWithAlert/LinkWithAlert"
+import { LiaGithub, LiaLinkedin, LiaFileArchive } from 'react-icons/lia'
+import { LinkWithAlert } from './LinkWithAlert'
 
 export function SocialLinks() {
 	return (

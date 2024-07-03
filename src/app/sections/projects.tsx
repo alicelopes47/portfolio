@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { LinksPT, ProjectsType, hrefs } from "../Domain"
+import { LinksPT, LinksUS, ProjectsType, SectionProps, hrefs } from "../Domain"
 import { performRequest } from "../../../lib/datocms"
 
 const PROJECTS_CONTENT = `
@@ -32,15 +32,11 @@ const PROJECTS_CONTENT_US = `
   }`
 
 async function fetchProjects(isEnUs: boolean) {
-  const response = await performRequest({ query: isEnUs ? PROJECTS_CONTENT_US : PROJECTS_CONTENT })
-  return response.allProjects
+	const response = await performRequest({ query: isEnUs ? PROJECTS_CONTENT_US : PROJECTS_CONTENT })
+	return response.allProjects
 }
 
-interface ProjectsProps {
-	isEnUs: boolean
-}
-
-function Projects({ isEnUs }: ProjectsProps) {
+function Projects({ isEnUs }: SectionProps) {
 	const [projects, setProjects] = useState([])
 
 	useEffect(() => {
@@ -52,7 +48,7 @@ function Projects({ isEnUs }: ProjectsProps) {
 			<h1
 				className={`md:text-[2.5rem] text-3xl text-primaryBold md:text-start text-center md:mb-12 mb-8`}
 			>
-				projetos
+				{isEnUs ? LinksUS.PROJECTS.toLowerCase() : LinksPT.PROJECTS.toLowerCase()}
 			</h1>
 			<div className="md:grid grid-cols-3 grid-rows-1 md:gap-12 gap-4 flex flex-col">
 				{projects?.map((project: ProjectsType) => (
