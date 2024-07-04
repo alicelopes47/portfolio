@@ -56,10 +56,10 @@ export default function Home() {
 					<DropDown
 						links={isEnUs ? linksUsArray : linksPtArray}
 						activeSection={activeSection}
+						onClickTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')}
 					/>
 				) : (
 					<Menu
-						theme={theme}
 						onClickTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')}
 						activeSection={activeSection}
 						links={isEnUs ? linksUsArray : linksPtArray}

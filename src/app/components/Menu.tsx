@@ -11,7 +11,6 @@ interface Links {
 	links: string[]
 	activeSection: string
 	onClickTheme: () => void
-	theme: ThemeTypes
 }
 
 export const Menu = ({ links, activeSection, onClickTheme }: Links) => {

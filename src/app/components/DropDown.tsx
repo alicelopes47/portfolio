@@ -2,13 +2,15 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { hrefsArray } from '../Domain'
+import { BsSun } from 'react-icons/bs'
 
 interface Props {
 	links: string[]
 	activeSection: string
+	onClickTheme: () => void
 }
 
-const DropDown = ({ links, activeSection }: Props) => {
+const DropDown = ({ links, activeSection, onClickTheme }: Props) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const navbarRef = useRef<HTMLDivElement | null>(null)
 
@@ -30,11 +32,19 @@ const DropDown = ({ links, activeSection }: Props) => {
 
 	return (
 		<>
-			<div
-				className="fixed bg-primary w-full z-50 top-0 p-4 cursor-pointer"
-				onClick={() => setIsOpen(true)}
-			>
-				<FaBars className="text-2xl text-lightText" />
+			<div className='fixed flex px-4 pt-2 justify-between bg-primary w-full z-50 top-0'>
+				<div
+					className="cursor-pointer p-2"
+					onClick={() => setIsOpen(true)}
+				>
+					<FaBars className="text-3xl text-highlightText" />
+				</div>
+				<button
+					onClick={onClickTheme}
+					className={`rounded-t-2xl hover:bg-primaryLight py-2 px-4 bg-lightText text-highlightText`}
+				>
+					<BsSun className="text-3xl text-darkText" />
+				</button>
 			</div>
 			{isOpen && (
 				<div
@@ -47,8 +57,8 @@ const DropDown = ({ links, activeSection }: Props) => {
 							href={`#${hrefsArray[index]}`}
 							onClick={handleClose}
 							key={index}
-							className={`text-start ml-7 text-xl pt-12 hover:text-lightText ${
-								activeSection == hrefsArray[index] ? ' text-lightText' : ''
+							className={`text-start ml-7 text-highlightText text-xl pt-12 hover:text-lightText ${
+								activeSection == hrefsArray[index] ? 'font-bold' : 'font-normal'
 							}`}
 						>
 							{link}
