@@ -50,7 +50,7 @@ export default function Home() {
 	return (
 		<>
 			<main
-				className={`${kodchasan.className} bg-hexagonPattern relative md:pt-[10rem] pt-[5em] ${theme}`}
+				className={`${kodchasan.className} bg-hexagonPattern relative md:pt-[10rem] pt-[5em] pb-[5em] ${theme}`}
 			>
 				{isMobile ? (
 					<DropDown
