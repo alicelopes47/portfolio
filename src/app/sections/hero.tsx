@@ -24,7 +24,7 @@ async function fetchHeroSection(isEnUs: boolean) {
 	return response.hero
 }
 
-function Hero({ isEnUs }: SectionProps) {
+function Hero({ isEnUs, theme }: SectionProps) {
 	const [hero, setHero] = useState<HeroTypes | null>(null)
 
 	useEffect(() => {
@@ -39,13 +39,13 @@ function Hero({ isEnUs }: SectionProps) {
 			<h1
 				data-aos="fade-up"
 				id={hrefs.HOME}
-				className={`md:text-[3rem] scroll-mt-[10rem] text-center text-3xl`}
+				className={`md:text-[3rem] scroll-mt-[10rem] text-center text-3xl text-darkText`}
 			>
 				{hero?.titlePt || hero?.titleUs}
 				<span className="text-primaryBold">Alice Lopes</span>
 			</h1>
 			<Lottie
-				src="https://cdn.lottielab.com/l/3KEkh3sM9Tnhxu.json"
+				src={`${theme === 'dark' ? 'https://cdn.lottielab.com/l/7kPR6Te97KcQYi.json' : 'https://cdn.lottielab.com/l/3KEkh3sM9Tnhxu.json'}`}
 				autoplay
 				className="md:w-[25%] w-[85%]"
 			/>

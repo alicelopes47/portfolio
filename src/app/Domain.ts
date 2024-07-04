@@ -19,6 +19,8 @@ export enum hrefs {
 	CONTACT = 'contact',
 }
 
+export type ThemeTypes = "light" | "dark"
+
 export const linksPtArray = Object.values(LinksPT)
 export const linksUsArray = Object.values(LinksUS)
 export const hrefsArray = Object.values(hrefs)
@@ -55,5 +57,6 @@ export interface HeroTypes {
 }
 
 export interface SectionProps {
-	isEnUs: boolean
+	isEnUs: boolean,
+	theme?: ThemeTypes
 }

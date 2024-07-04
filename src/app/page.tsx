@@ -4,7 +4,7 @@ const kodchasan = Kodchasan({ subsets: ['latin'], weight: ['200'] })
 import Projects from './sections/projects'
 import { Menu } from './components/Menu'
 import { useEffect, useState } from 'react'
-import { linksPtArray, linksUsArray, hrefs } from './Domain'
+import { linksPtArray, linksUsArray, hrefs, ThemeTypes } from './Domain'
 import { SocialLinks } from './components/SocialLinks'
 import SkillsPage from './sections/skills'
 import AOS from 'aos'
@@ -19,6 +19,7 @@ export default function Home() {
 	const isMobile = useIsMobile()
 	const [isEnUs, setIsEnUs] = useState(false)
 	let [activeSection, setActiveSection] = useState('home')
+	const [theme, setTheme] = useState<ThemeTypes>('light')
 
 	useEffect(() => {
 		AOS.init()
@@ -48,7 +49,9 @@ export default function Home() {
 
 	return (
 		<>
-			<main className={`${kodchasan.className} bg-hexagonPattern relative md:pt-[10rem] pt-[5em] light`}>
+			<main
+				className={`${kodchasan.className} bg-hexagonPattern relative md:pt-[10rem] pt-[5em] ${theme}`}
+			>
 				{isMobile ? (
 					<DropDown
 						links={isEnUs ? linksUsArray : linksPtArray}
@@ -56,6 +59,8 @@ export default function Home() {
 					/>
 				) : (
 					<Menu
+						theme={theme}
+						onClickTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')}
 						activeSection={activeSection}
 						links={isEnUs ? linksUsArray : linksPtArray}
 					/>
@@ -70,7 +75,10 @@ export default function Home() {
 						unCheckedChildren="Pt-Br"
 					/>
 				</div>
-				<Hero isEnUs={isEnUs} />
+				<Hero
+					isEnUs={isEnUs}
+					theme={theme}
+				/>
 				<Divider />
 				<SkillsPage isEnUs={isEnUs} />
 				<Divider />
