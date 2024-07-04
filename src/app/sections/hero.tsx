@@ -33,7 +33,7 @@ function Hero({ isEnUs, theme }: SectionProps) {
 
 	return (
 		<div
-			className={`md:w-[100vw] md:h-[90vh] w-full h-[75vh] flex px-2 flex-col items-center gap-12`}
+			className={`md:h-[90vh] w-full h-[75vh] flex px-2 flex-col items-center gap-12`}
 			data-aos="fade-left"
 		>
 			<h1
@@ -47,7 +47,7 @@ function Hero({ isEnUs, theme }: SectionProps) {
 			<Lottie
 				src={`${theme === 'dark' ? 'https://cdn.lottielab.com/l/7kPR6Te97KcQYi.json' : 'https://cdn.lottielab.com/l/3KEkh3sM9Tnhxu.json'}`}
 				autoplay
-				className="md:w-[25%] w-[85%]"
+				className="md:w-[45%] lg:w-[25%] w-[80%]"
 			/>
 			<h1
 				className={`md:text-[3rem] text-2xl text-primaryBold`}

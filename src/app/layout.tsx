@@ -1,22 +1,21 @@
-'use client'
-import { useState } from "react";
-import "./globals.css"
-import "aos/dist/aos.css";
+import './globals.css'
+import 'aos/dist/aos.css'
+import FavIcon from './favicon.ico'
+
+export const metadata = {
+	title: 'Alice Lopes',
+	description: 'Desenvolvedora Web, conheça meus projetos e habilidades.',
+	favicon: FavIcon,
+}
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode
+	children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <title>Alice Lopes</title>
-      </head>
-      <body className={`bg-hexagonPattern`}>
-        {children}
-      </body>
-    </html>
-  )
+	return (
+		<html lang="en">
+			<body className={`bg-hexagonPattern`}>{children}</body>
+		</html>
+	)
 }

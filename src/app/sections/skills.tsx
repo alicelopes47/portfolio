@@ -10,9 +10,9 @@ const SKILLS_CONTENT = `
     allSkills(
 	  orderBy: proficiency_DESC
 	) {
-      id
-      name
-      description
+		id
+		name
+		description
 	  icon
 	  fullDescription
 	  fullDescriptionUs
@@ -26,8 +26,8 @@ const SKILLS_CONTENT_US = `
     allSkills(
 	  orderBy: proficiency_DESC
 	) {
-      id
-      name
+		id
+		name
 	  icon
 	  fullDescriptionUs
 	  descriptionUs
