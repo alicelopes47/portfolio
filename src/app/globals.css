@@ -17,6 +17,29 @@ html {
   --primary-bold: #9D6BAB;
 }
 
+.rs-toggle-inner {
+  color: black;
+}
+
+.rs-toggle-lg.rs-toggle-checked .rs-toggle-presentation .rs-toggle-inner {
+  color: white;
+}
+
+.rs-toggle-presentation::after {
+  background-image: url('/assets/brazil-flag.png');
+  background-position: center;
+  background-size: 25px;
+  object-fit: scale-down;
+}
+.rs-toggle.rs-toggle-checked .rs-toggle-presentation::after {
+  background-image: url('/assets/usa-flag.png');
+  background-position: center; 
+  background-size: 22px;
+  object-fit: scale-down;
+}
+
+
+
 .dark {
   --hexagon-pattern: url("/assets/darkmode.svg");
   --light-text: #000;
