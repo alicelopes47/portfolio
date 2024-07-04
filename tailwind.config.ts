@@ -18,6 +18,7 @@ const config: Config = {
 			lightText: 'var(--light-text)',
 			icons: 'var(--icons)',
 			darkText: 'var(--dark-text)',
+			bgHover: 'var(--bg-hover)',
 			black: '#252525',
 		},
 		backgroundImage: {

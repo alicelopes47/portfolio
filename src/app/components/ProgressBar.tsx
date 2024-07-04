@@ -7,7 +7,7 @@ export const ProgressBar = ({
 }: ProgressBarProps) => (
 	<div className="h-[10%] w-2/6 bg-[#c7b8c1] rounded-full">
 		<div
-			className={`h-full w-[${proficiency}%] bg-primary text-right rounded-full`}
+			className={`h-full w-[${proficiency}%] bg-icons text-right rounded-full`}
 		></div>
 	</div>
 )

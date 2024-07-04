@@ -15,6 +15,19 @@ html {
   --icons: #CF96DF;
   --highlight-text: #FFF;
   --primary-bold: #9D6BAB;
+  --bg-hover: #f6effa;
+}
+
+.dark {
+  --hexagon-pattern: url("/assets/darkmode.svg");
+  --light-text: #000;
+  --dark-text: #FFF;
+  --highlight-text: #FFF;
+  --icons: #f3c8ff;
+  --primary: #40194d;
+  --dark-text: #FFF;
+  --primary-bold: #e9e1eb;
+  --bg-hover: #3a1450;
 }
 
 .rs-toggle-inner {
@@ -36,19 +49,6 @@ html {
   background-position: center; 
   background-size: 22px;
   object-fit: scale-down;
-}
-
-
-
-.dark {
-  --hexagon-pattern: url("/assets/darkmode.svg");
-  --light-text: #000;
-  --dark-text: #FFF;
-  --highlight-text: #FFF;
-  --icons: #f3c8ff;
-  --primary: #40194d;
-  --dark-text: #FFF;
-  --primary-bold: #e9e1eb;
 }
 
 .la,

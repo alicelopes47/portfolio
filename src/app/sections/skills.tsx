@@ -91,11 +91,11 @@ const Card = ({ title, description, icon, children, proficiency }: CardProps) =>
 	return (
 		<div
 			id={hrefs.SKILLS}
-			className="transition-all hover:animate-pulse hover:bg-[#f6effa] rounded-2xl hover:scale-105"
+			className="transition-all hover:animate-pulse rounded-2xl hover:scale-105"
 		>
 			<div
 				data-aos="fade-up"
-				className="rounded-2xl flex text-darkText flex-col p-4 h-[100%] cursor-pointer hover:bg-primaryLight transition duration-200h-full overflow-hidden bg-lightText border border-primary"
+				className="rounded-2xl flex text-darkText flex-col p-4 h-[100%] cursor-pointer hover:bg-bgHover transition duration-200h-full overflow-hidden bg-lightText border border-primary"
 			>
 				<div className="flex justify-between items-start">
 					<FontIcon iconType={icon} />
