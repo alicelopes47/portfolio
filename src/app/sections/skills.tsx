@@ -3,53 +3,22 @@ import { performRequest } from '../../../lib/datocms'
 import { LinksPT, LinksUS, SectionProps, SkillsType, hrefs } from '../Domain'
 import { FontIcon } from '../components/FontIcon'
 import { Meteors } from '../ui/meteors'
-import { ProgressBar } from '../components/ProgressBar'
-
-const SKILLS_CONTENT = `
-  query Skills {
-    allSkills(
-	  orderBy: proficiency_DESC
-	) {
-		id
-		name
-		description
-	  icon
-	  fullDescription
-	  fullDescriptionUs
-	  descriptionUs
-	  proficiency
-    }
-  }`
-
-const SKILLS_CONTENT_US = `
-  query Skills {
-    allSkills(
-	  orderBy: proficiency_DESC
-	) {
-		id
-		name
-	  icon
-	  fullDescriptionUs
-	  descriptionUs
-	  proficiency
-    }
-  }`
-
-async function fetchSkills(isEnUs: boolean) {
-	const response = await performRequest({ query: isEnUs ? SKILLS_CONTENT_US : SKILLS_CONTENT })
-	return response.allSkills
-}
+import { fetchSkills } from '../api/datocms'
 
 function Skills({ isEnUs }: SectionProps) {
-	const [skills, setSkills] = useState([])
+	const [skills, setSkills] = useState<SkillsType[]>([])
 
 	useEffect(() => {
-		fetchSkills(isEnUs).then((skills) => setSkills(skills))
+		const fetchSkillsData = async () => {
+			const skills = await fetchSkills(isEnUs)
+			setSkills(skills)
+		}
+		fetchSkillsData()
 	}, [isEnUs])
 
 	return (
 		<div
-			className="md:px-24 px-12 scroll-mt-[10rem]"
+			className='md:px-24 px-12 scroll-mt-[10rem]'
 			id={hrefs.SKILLS}
 		>
 			<h1
@@ -57,7 +26,7 @@ function Skills({ isEnUs }: SectionProps) {
 			>
 				{isEnUs ? LinksUS.SKILLS.toLowerCase() : LinksPT.SKILLS.toLowerCase()}
 			</h1>
-			<div className="mt-5 grid gap-5 grid-cols-1 md:grid-cols-3 w-full">
+			<div className='mt-5 grid gap-5 grid-cols-1 md:grid-cols-3 w-full'>
 				{skills?.map((skill: SkillsType) => (
 					<>
 						<Card
@@ -87,21 +56,32 @@ export interface CardProps {
 	children: React.ReactNode
 }
 
-const Card = ({ title, description, icon, children, proficiency }: CardProps) => {
+const Card = ({
+	title,
+	description,
+	icon,
+	children,
+	proficiency,
+}: CardProps) => {
 	return (
 		<div
 			id={hrefs.SKILLS}
-			className="transition-all hover:animate-pulse rounded-2xl hover:scale-105"
+			className='transition-all hover:animate-pulse rounded-2xl hover:scale-105'
 		>
 			<div
-				data-aos="fade-up"
-				className="rounded-2xl flex text-darkText flex-col p-4 h-[100%] cursor-pointer hover:bg-bgHover transition overflow-hidden bg-lightText border border-primary"
+				data-aos='fade-up'
+				className='rounded-2xl flex text-darkText flex-col p-4 h-[100%] cursor-pointer hover:bg-bgHover transition overflow-hidden bg-lightText border border-primary'
 			>
-				<div className="flex justify-between items-start">
+				<div className='flex justify-between items-start'>
 					<FontIcon iconType={icon} />
-					<ProgressBar proficiency={proficiency} />
+					<div className='h-[10%] w-2/6 bg-[#c7b8c1] rounded-full'>
+						<div
+							className={`h-full bg-icons text-right rounded-full`}
+							style={{ width: `${proficiency}%` }}
+						></div>
+					</div>
 				</div>
-				<h1 className="font-bold text-start mt-4">{title}</h1>
+				<h1 className='font-bold text-start mt-4'>{title}</h1>
 				<h1>{description}</h1>
 				{children}
 			</div>
