@@ -17,9 +17,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<Suspense fallback={<Loading />}>
 				<body className={`bg-hexagonPattern`}>{children}</body>
-			</Suspense>
 		</html>
 	)
 }

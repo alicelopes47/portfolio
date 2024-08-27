@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { LinksPT, LinksUS, ProjectsType, SectionProps, hrefs } from '../Domain'
-import { performRequest } from '../../../lib/datocms'
 import { fetchProjects } from '../api/datocms'
 
 function Projects({ isEnUs }: SectionProps) {

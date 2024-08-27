@@ -4,14 +4,18 @@ import { LinksPT, LinksUS, SectionProps, SkillsType, hrefs } from '../Domain'
 import { FontIcon } from '../components/FontIcon'
 import { Meteors } from '../ui/meteors'
 import { fetchSkills } from '../api/datocms'
+import { Loader } from '../ui/loader'
 
 function Skills({ isEnUs }: SectionProps) {
 	const [skills, setSkills] = useState<SkillsType[]>([])
+	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
 		const fetchSkillsData = async () => {
+			setLoading(true)
 			const skills = await fetchSkills(isEnUs)
 			setSkills(skills)
+			setLoading(false)
 		}
 		fetchSkillsData()
 	}, [isEnUs])
@@ -27,22 +31,26 @@ function Skills({ isEnUs }: SectionProps) {
 				{isEnUs ? LinksUS.SKILLS.toLowerCase() : LinksPT.SKILLS.toLowerCase()}
 			</h1>
 			<div className='mt-5 grid gap-5 grid-cols-1 md:grid-cols-3 w-full'>
-				{skills?.map((skill: SkillsType) => (
-					<>
-						<Card
-							proficiency={skill.proficiency}
-							title={skill.name}
-							icon={skill.icon}
-							description={skill.description || skill.descriptionUs}
-							key={skill.id}
-						>
-							<Meteors
-								indx={skill.id}
-								number={5}
-							/>
-						</Card>
-					</>
-				))}
+				{loading ? (
+					<Loader />
+				) : (
+					skills?.map((skill: SkillsType) => (
+						<>
+							<Card
+								proficiency={skill.proficiency}
+								title={skill.name}
+								icon={skill.icon}
+								description={skill.description || skill.descriptionUs}
+								key={skill.id}
+							>
+								<Meteors
+									indx={skill.id}
+									number={5}
+								/>
+							</Card>
+						</>
+					))
+				)}
 			</div>
 		</div>
 	)
