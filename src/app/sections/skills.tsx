@@ -40,7 +40,7 @@ function Skills({ isEnUs }: SectionProps) {
 				<div
 					className={`mt-5 ${
 						isMobile
-							? 'flex flex-wrap justify-items-center justify-center gap-8'
+							? 'flex flex-wrap justify-start gap-4'
 							: 'grid gap-5 grid-cols-1 md:grid-cols-3'
 					} w-full`}
 				>
