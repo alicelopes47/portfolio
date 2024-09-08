@@ -30,6 +30,7 @@ export interface ProjectsType {
 	title: string
 	description: string
 	titleUs: string
+	href?: string;
 	descriptionUs: string
 	image: {
 		url: string

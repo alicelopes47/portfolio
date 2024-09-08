@@ -8,6 +8,7 @@ const PROJECTS_CONTENT = `
     allProjects {
       id
       title
+      href
       description
       image {
         url
@@ -23,6 +24,7 @@ const PROJECTS_CONTENT_US = `
       id
       titleUs
       descriptionUs
+      href
       image {
         url
         width
