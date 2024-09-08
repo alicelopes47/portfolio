@@ -8,7 +8,7 @@ export function SocialLinks() {
 			className="flex rounded-md flex-col z-50 md:p-4 p-2 gap-4 bg-[#c946f117] fixed md:bottom-4 bottom-0 md:left-5 left-0"
 		>
 			<LinkWithAlert
-				href="https://www.linkedin.com/in/alice-lopes-423a1a249/"
+				href="https://www.linkedin.com/in/alicelopes47/"
 				icon={<LiaLinkedin className="md:text-4xl text-3xl text-icons" />}
 				message="Linkedin"
 			/>
