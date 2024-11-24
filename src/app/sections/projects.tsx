@@ -26,10 +26,9 @@ function Projects({ isEnUs }: SectionProps) {
 			</h1>
 			<div className='md:grid grid-cols-3 grid-rows-1 md:gap-12 gap-4 flex flex-col'>
 				{projects?.map((project: ProjectsType) => (
-					<a href={project.href} target='_blank'>
+					<a href={project.href} key={project.id} target='_blank'>
 						<div
 						data-aos='fade-up'
-						key={project.id}
 						className='w-full gap-2 p-4 rounded-xl flex flex-col  border border-primary cursor-pointer hover:bg-bgHover hover:scale-105'
 					>
 						<p className='text-[1.4rem] text-primaryBold text-center'>
