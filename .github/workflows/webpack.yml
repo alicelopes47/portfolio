@@ -1,34 +1,42 @@
-name: Next.js CI
+name: Next.js Build and Deploy to Netlify
 
 on:
   push:
-    branches:
-      - main # Executa o workflow ao fazer push para a branch "main".
+    branches: [ "master" ]
   pull_request:
-    branches:
-      - main # Executa o workflow para pull requests na branch "main".
+    branches: [ "master" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x] # Compatível com Next.js e suas dependências.
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3 # Faz o checkout do repositório.
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16' # Altere para a versão compatível com o seu projeto Next.js.
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install # Instala as dependências.
+    - name: Install dependencies
+      run: npm install
 
-      - name: Run build
-        run: npm run build # Gera o build do Next.js.
+    - name: Lint code
+      run: npm run lint
 
-      - name: Run tests
-        run: npm test -- --watchAll=false # Executa os testes (se houver).
+    - name: Build project
+      run: npm run build
 
-      - name: Export static files (opcional, para SSG)
-        run: npm run export
+    - name: Install Netlify CLI
+      run: npm install -g netlify-cli
+
+    - name: Deploy to Netlify
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      run: |
+        netlify deploy --dir=.next --prod
