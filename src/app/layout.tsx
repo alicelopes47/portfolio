@@ -2,6 +2,7 @@ import './globals.css'
 import 'aos/dist/aos.css'
 import FavIcon from './favicon.ico'
 import { LoadingProvider } from './context/LoadingProvider'
+import { UserPreferencesProvider } from './context/UserPreferencesProvider.tsx'
 
 export const metadata = {
 	title: 'Alice Lopes',
@@ -16,9 +17,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='pt-BR'>
-			<LoadingProvider>
-				<body className={`bg-hexagonPattern`}>{children}</body>
-			</LoadingProvider>
+			<body className={`bg-hexagonPattern`}>
+				<LoadingProvider>
+					<UserPreferencesProvider>{children}</UserPreferencesProvider>
+				</LoadingProvider>
+			</body>
 		</html>
 	)
 }

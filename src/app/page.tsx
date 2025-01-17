@@ -16,14 +16,13 @@ import Hero from './sections/hero'
 import { Divider } from './ui/divider'
 import { useLoading } from './context/LoadingProvider'
 import Loading from './loading'
+import { useUserPreferences } from './context/UserPreferencesProvider.tsx'
 
 export default function Home() {
 	const isMobile = useIsMobile()
-	const { loading } = useLoading()
-
-	const [isEnUs, setIsEnUs] = useState(false)
+	const { theme, setTheme, isEnUs, setIsEnUs } = useUserPreferences()
+	const { loading, setLoading } = useLoading()
 	let [activeSection, setActiveSection] = useState('home')
-	const [theme, setTheme] = useState<ThemeTypes>('light')
 
 	useEffect(() => {
 		AOS.init()
@@ -51,9 +50,12 @@ export default function Home() {
 		return () => observer.disconnect()
 	}, [isEnUs])
 
+	if (loading) {
+		return <Loading />
+	}
+
 	return (
 		<>
-			{loading && <Loading />}
 			<main
 				className={`${kodchasan.className} bg-hexagonPattern relative md:pt-[10rem] pt-[5em] pb-[5em] ${theme}`}
 			>
@@ -71,19 +73,7 @@ export default function Home() {
 					/>
 				)}
 				<SocialLinks />
-				<div className='fixed md:bottom-10 bottom-4 md:right-10 right-4 z-50'>
-					<Toggle
-						color='violet'
-						size={'lg'}
-						checkedChildren='En-Us'
-						onClick={() => setIsEnUs(!isEnUs)}
-						unCheckedChildren='Pt-Br'
-					/>
-				</div>
-				<Hero
-					isEnUs={isEnUs}
-					theme={theme}
-				/>
+				<Hero isEnUs={isEnUs} />
 				<Divider />
 				<SkillsPage isEnUs={isEnUs} />
 				<Divider />
