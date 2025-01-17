@@ -1,8 +1,7 @@
 import './globals.css'
 import 'aos/dist/aos.css'
 import FavIcon from './favicon.ico'
-import { Suspense } from 'react'
-import Loading from './loading'
+import { LoadingProvider } from './context/LoadingProvider'
 
 export const metadata = {
 	title: 'Alice Lopes',
@@ -16,8 +15,10 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en'>
+		<html lang='pt-BR'>
+			<LoadingProvider>
 				<body className={`bg-hexagonPattern`}>{children}</body>
+			</LoadingProvider>
 		</html>
 	)
 }

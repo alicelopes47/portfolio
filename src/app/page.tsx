@@ -14,9 +14,13 @@ import Toggle from 'rsuite/Toggle'
 import 'rsuite/Toggle/styles/index.css'
 import Hero from './sections/hero'
 import { Divider } from './ui/divider'
+import { useLoading } from './context/LoadingProvider'
+import Loading from './loading'
 
 export default function Home() {
 	const isMobile = useIsMobile()
+	const { loading } = useLoading()
+
 	const [isEnUs, setIsEnUs] = useState(false)
 	let [activeSection, setActiveSection] = useState('home')
 	const [theme, setTheme] = useState<ThemeTypes>('light')
@@ -49,6 +53,7 @@ export default function Home() {
 
 	return (
 		<>
+			{loading && <Loading />}
 			<main
 				className={`${kodchasan.className} bg-hexagonPattern relative md:pt-[10rem] pt-[5em] pb-[5em] ${theme}`}
 			>
@@ -66,13 +71,13 @@ export default function Home() {
 					/>
 				)}
 				<SocialLinks />
-				<div className="fixed md:bottom-10 bottom-4 md:right-10 right-4 z-50">
+				<div className='fixed md:bottom-10 bottom-4 md:right-10 right-4 z-50'>
 					<Toggle
-						color="violet"
+						color='violet'
 						size={'lg'}
-						checkedChildren="En-Us"
+						checkedChildren='En-Us'
 						onClick={() => setIsEnUs(!isEnUs)}
-						unCheckedChildren="Pt-Br"
+						unCheckedChildren='Pt-Br'
 					/>
 				</div>
 				<Hero
