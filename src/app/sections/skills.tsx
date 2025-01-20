@@ -33,7 +33,10 @@ function Skills({ isEnUs }: SectionProps) {
           skill={selectedSkill}
         ></Modal>
       )}
-      <div className="md:px-24 px-12 scroll-mt-[10rem]" id={hrefs.SKILLS}>
+      <div
+        className="md:px-24 px-4 scroll-mt-[10rem] flex items-center flex-col"
+        id={hrefs.SKILLS}
+      >
         <h1
           className={`md:text-[2.5rem] text-3xl text-primaryBold md:text-start text-center  md:mb-12 mb-8`}
         >
@@ -43,7 +46,7 @@ function Skills({ isEnUs }: SectionProps) {
         <div
           className={`mt-5 ${
             isMobile
-              ? 'flex flex-wrap justify-start gap-4'
+              ? 'justify-start grid grid-cols-4 gap-4'
               : 'grid gap-5 grid-cols-1 md:grid-cols-3'
           } w-full`}
         >

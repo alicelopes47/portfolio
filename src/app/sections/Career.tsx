@@ -18,7 +18,7 @@ function Career() {
   }, [isEnUs]);
 
   return (
-    <div id={hrefs.CAREER} className="md:px-24 px-12 scroll-mt-[10rem]">
+    <div id={hrefs.CAREER} className="md:px-24 px-4 scroll-mt-[10rem]">
       <h1
         className={`md:text-[2.5rem] text-3xl text-primaryBold md:text-start text-center md:mb-12 mb-8`}
       >
