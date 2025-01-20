@@ -19,11 +19,7 @@ export const TimelineItem = ({
   index,
 }: TimelineDataProps) => (
   <div className="timeline-item" id={hrefs.CAREER}>
-    <div
-      className="timeline-item-content"
-      key={index}
-      data-aos={index % 2 === 0 ? 'fade-left' : 'fade-right'}
-    >
+    <div className="timeline-item-content" key={index} data-aos="fade-up">
       <span className="icon">
         <FontIcon iconType={categoryIcon} />
       </span>
