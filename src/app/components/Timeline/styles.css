@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
-* {
-  box-sizing: border-box;
-}
-
 .timeline-container {
   display: flex;
   flex-direction: column;
