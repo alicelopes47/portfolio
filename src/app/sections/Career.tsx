@@ -25,7 +25,11 @@ function Career() {
         {isEnUs ? LinksUS.CAREER.toLowerCase() : LinksPT.CAREER.toLowerCase()}
       </h1>
       {career?.length > 0 && (
-        <div className="timeline-container" data-aos="fade-up">
+        <div
+          className="timeline-container"
+          id={hrefs.CAREER}
+          data-aos="fade-up"
+        >
           {career?.map((career, idx) => (
             <TimelineItem
               text={isEnUs ? career.textUs : career.text}

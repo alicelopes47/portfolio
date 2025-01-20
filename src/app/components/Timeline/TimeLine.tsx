@@ -1,7 +1,7 @@
 import { LiaSchoolSolid } from 'react-icons/lia';
 import { FontIcon } from '../FontIcon';
 import './styles.css';
-import { CareerType } from '@/app/Domain';
+import { CareerType, hrefs } from '@/app/Domain';
 
 export interface TimelineDataProps {
   text: string;
@@ -18,7 +18,7 @@ export const TimelineItem = ({
   finalDescription,
   index,
 }: TimelineDataProps) => (
-  <div className="timeline-item">
+  <div className="timeline-item" id={hrefs.CAREER}>
     <div
       className="timeline-item-content"
       key={index}

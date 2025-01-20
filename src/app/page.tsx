@@ -20,8 +20,8 @@ import { useUserPreferences } from './context/UserPreferencesProvider.tsx';
 
 export default function Home() {
   const isMobile = useIsMobile();
-  const { theme, setTheme, isEnUs, setIsEnUs } = useUserPreferences();
-  const { loading, setLoading } = useLoading();
+  const { theme, setTheme, isEnUs } = useUserPreferences();
+  const { loading } = useLoading();
   let [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
