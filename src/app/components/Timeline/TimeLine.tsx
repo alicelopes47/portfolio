@@ -34,8 +34,3 @@ export const TimelineItem = ({
     </div>
   </div>
 );
-
-interface TimelineProps {
-  career: CareerType[];
-  isEnUs: boolean;
-}
