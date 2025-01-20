@@ -151,6 +151,10 @@
     margin-bottom: 10px;
   }
 
+  .timeline-item-content p  {
+    font-size: 12px;
+  }
+
   .timeline-item-content time {
     margin-top: 40px;
   }
