@@ -1,22 +1,23 @@
 'use client';
 import { Kodchasan } from 'next/font/google';
 const kodchasan = Kodchasan({ subsets: ['latin'], weight: ['200'] });
-import Projects from './sections/projects';
+import Projects from './sections/Projects';
 import { Menu } from './components/Menu';
 import Career from './sections/Career';
 import { useEffect, useState } from 'react';
 import { linksPtArray, linksUsArray, hrefsArray } from './Domain';
 import { SocialLinks } from './components/SocialLinks';
-import SkillsPage from './sections/skills';
+import SkillsPage from './sections/Skills';
 import AOS from 'aos';
 import useIsMobile from './utils/UseIsMobile';
 import DropDown from './components/DropDown';
 import 'rsuite/Toggle/styles/index.css';
-import Hero from './sections/hero';
-import { Divider } from './ui/divider';
+import Hero from './sections/Hero';
+import { Divider } from './ui/Divider';
 import { useLoading } from './context/LoadingProvider';
 import Loading from './loading';
 import { useUserPreferences } from './context/UserPreferencesProvider.tsx';
+import About from './sections/About';
 
 export default function Home() {
   const isMobile = useIsMobile();
@@ -78,6 +79,8 @@ export default function Home() {
         <Career />
         <Divider />
         <Projects isEnUs={isEnUs} />
+        <Divider />
+        <About isEnUs={isEnUs} />
       </main>
     </>
   );

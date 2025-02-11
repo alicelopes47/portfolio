@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import { performRequest } from '../../../lib/datocms';
 import { LinksPT, LinksUS, SectionProps, SkillsType, hrefs } from '../Domain';
 import { FontIcon } from '../components/FontIcon';
-import { Meteors } from '../ui/meteors';
+import { Meteors } from '../ui/Meteors';
 import { fetchSkills } from '../api/datocms';
-import { Loader } from '../ui/loader';
+import { Loader } from '../ui/Loader';
 import useIsMobile from '../utils/UseIsMobile';
 import { useUserPreferences } from '../context/UserPreferencesProvider.tsx';
 
