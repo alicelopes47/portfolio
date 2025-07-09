@@ -77,7 +77,7 @@ const MyDocument = ({ career, isEnUs }: MyDocumentProps) => {
         </View>
         <View style={styles.section}>
           <Text style={styles.subtitle}>
-            {isEnUs ? 'Experiência' : 'Experience'}
+            {isEnUs ? 'Experience' : 'Experiência'}
           </Text>
           {careerItems.map((item, idx) => (
             <View key={idx.toString()} style={styles.careerItem}>
