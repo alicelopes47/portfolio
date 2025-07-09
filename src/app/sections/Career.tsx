@@ -1,21 +1,12 @@
-import { useState, useEffect } from 'react';
-import { fetchCareer } from '../api/datocms';
 import { TimelineItem } from '../components/Timeline/TimeLine';
 import { useUserPreferences } from '../context/UserPreferencesProvider.tsx';
-import { LinksUS, LinksPT, hrefs, CareerType } from '../Domain';
+import { useCareer } from '../context/CareerContext';
+import { LinksUS, LinksPT, hrefs } from '../Domain';
 import '../components/Timeline/styles.css';
 
 function Career() {
   const { isEnUs } = useUserPreferences();
-  const [career, setCareer] = useState<CareerType[]>([]);
-
-  useEffect(() => {
-    const fetchCareerData = async () => {
-      const career = await fetchCareer(isEnUs);
-      setCareer(career);
-    };
-    fetchCareerData();
-  }, [isEnUs]);
+  const { career, loading, error } = useCareer();
 
   return (
     <div id={hrefs.CAREER} className="md:px-24 px-4 scroll-mt-[10rem]">
@@ -24,7 +15,15 @@ function Career() {
       >
         {isEnUs ? LinksUS.CAREER.toLowerCase() : LinksPT.CAREER.toLowerCase()}
       </h1>
-      {career?.length > 0 && (
+
+      {loading && (
+        <div className="flex justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-primary"></div>
+        </div>
+      )}
+      {error && <div className="text-red-500 text-center">{error}</div>}
+
+      {!loading && !error && career?.length > 0 && (
         <div
           className="timeline-container"
           id={hrefs.CAREER}

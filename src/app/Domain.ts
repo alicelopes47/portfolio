@@ -69,4 +69,5 @@ export interface CareerType {
   textUs: string;
   dateUs: string;
   finaldescriptionUs: string;
+  description?: string;
 }

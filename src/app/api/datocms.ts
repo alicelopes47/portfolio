@@ -72,6 +72,7 @@ const EXPERIENCE_CONTENT = `
     date
     finaldescription
     categoryicon
+    description
     }
   }
 `;
@@ -85,6 +86,7 @@ const EXPERIENCE_CONTENT_US = `
       dateUs
       categoryicon
       finaldescriptionUs
+      description
     }
   }
 `;
