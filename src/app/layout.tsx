@@ -4,6 +4,7 @@ import FavIcon from './favicon.ico';
 import { LoadingProvider } from './context/LoadingProvider';
 import { UserPreferencesProvider } from './context/UserPreferencesProvider.tsx';
 import { CareerProvider } from './context/CareerContext';
+import { SkillsProvider } from './context/SkillsContext';
 
 export const metadata = {
   title: 'Alice Lopes',
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body className={`bg-hexagonPattern`}>
         <LoadingProvider>
           <UserPreferencesProvider>
-            <CareerProvider>{children}</CareerProvider>
+            <CareerProvider>
+              <SkillsProvider>{children}</SkillsProvider>
+            </CareerProvider>
           </UserPreferencesProvider>
         </LoadingProvider>
       </body>

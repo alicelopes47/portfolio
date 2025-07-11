@@ -9,7 +9,12 @@ interface LinkWithAlertProps {
   onClick?: (event: React.MouseEvent) => void;
 }
 
-export function LinkWithAlert({ message, href, icon, onClick }: LinkWithAlertProps) {
+export function LinkWithAlert({
+  message,
+  href,
+  icon,
+  onClick,
+}: LinkWithAlertProps) {
   const [openAlert, setOpenAlert] = useState(false);
 
   const handleClick = (event: React.MouseEvent) => {
@@ -25,10 +30,10 @@ export function LinkWithAlert({ message, href, icon, onClick }: LinkWithAlertPro
       onMouseLeave={() => setOpenAlert(false)}
     >
       {openAlert && <Alert message={message} />}
-      <a 
-        href={href} 
-        target="_blank" 
-        rel="noreferrer" 
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
         onClick={handleClick}
         className="cursor-pointer"
       >

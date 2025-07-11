@@ -7,21 +7,11 @@ import { fetchSkills } from '../api/datocms';
 import { Loader } from '../ui/loader';
 import useIsMobile from '../utils/UseIsMobile';
 import { useUserPreferences } from '../context/UserPreferencesProvider.tsx';
+import { useSkills } from '../context/SkillsContext';
 
 function Skills({ isEnUs }: SectionProps) {
-  const [skills, setSkills] = useState<SkillsType[]>([]);
-  const [loading, setLoading] = useState(false);
+  const { skills, loading, error } = useSkills();
   const isMobile = useIsMobile();
-
-  useEffect(() => {
-    const fetchSkillsData = async () => {
-      setLoading(true);
-      const skills = await fetchSkills(isEnUs);
-      setSkills(skills);
-      setLoading(false);
-    };
-    fetchSkillsData();
-  }, [isEnUs]);
 
   const [selectedSkill, setSelectedSkill] = useState<SkillsType | null>();
 

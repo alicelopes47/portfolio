@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18.19.0"
+  NEXT_RUNTIME = "edge"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

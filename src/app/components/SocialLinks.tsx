@@ -9,97 +9,11 @@ import {
   StyleSheet,
   PDFViewer,
   PDFDownloadLink,
-} from '@react-pdf/renderer';
+} from './pdf-client';
 import { CareerType } from '../Domain';
 import { useCareer } from '../context/CareerContext';
-
 import { useUserPreferences } from '../context/UserPreferencesProvider.tsx';
-
-// Create styles
-const styles = StyleSheet.create({
-  page: {
-    flexDirection: 'column',
-    backgroundColor: '#FFFFFF',
-    padding: 30,
-  },
-  section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1,
-  },
-  title: {
-    fontSize: 30,
-    marginBottom: 10,
-    textAlign: 'left',
-  },
-  subtitle: {
-    fontSize: 18,
-    marginBottom: 10,
-    fontWeight: 'bold',
-  },
-  text: {
-    fontSize: 10,
-    marginBottom: 5,
-  },
-  careerItem: {
-    marginBottom: 15,
-    borderBottom: '1pt solid #DDDDDD',
-  },
-  careerTitle: {
-    fontWeight: 'bold',
-    fontSize: 10,
-  },
-  careerHeader: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 5,
-  },
-});
-
-interface MyDocumentProps {
-  career: CareerType[];
-  isEnUs: boolean;
-}
-
-const MyDocument = ({ career, isEnUs }: MyDocumentProps) => {
-  // Use o operador de coalescência nulo para garantir que career seja sempre um array
-  const careerItems = career || [];
-
-  return (
-    <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.section}>
-          <Text style={styles.title}>Alice Lopes</Text>
-          <Text style={styles.subtitle}>
-            {isEnUs ? 'Frontend Developer' : 'Desenvolvedora Frontend'}
-          </Text>
-        </View>
-        <View style={styles.section}>
-          <Text style={styles.subtitle}>
-            {isEnUs ? 'Experience' : 'Experiência'}
-          </Text>
-          {careerItems.map((item, idx) => (
-            <View key={idx.toString()} style={styles.careerItem}>
-              <View style={styles.careerHeader}>
-                <Text style={styles.careerTitle}>
-                  {isEnUs ? item.textUs : item.text}
-                </Text>
-                <Text style={styles.text}>
-                  {isEnUs ? item.dateUs : item.date}
-                </Text>
-              </View>
-              <Text style={styles.text}>
-                {isEnUs ? item.finaldescriptionUs : item.finaldescription}
-              </Text>
-              <Text style={styles.text}>{item.description}</Text>
-            </View>
-          ))}
-        </View>
-      </Page>
-    </Document>
-  );
-};
+import MyDocument from './MyDocument';
 
 export function SocialLinks() {
   const { career, loading } = useCareer();
