@@ -13,10 +13,12 @@ import {
 import { CareerType } from '../Domain';
 import { useCareer } from '../context/CareerContext';
 import { useUserPreferences } from '../context/UserPreferencesProvider.tsx';
-import MyDocument from './MyDocument';
+import MyDocument from './Curriculum';
+import { useSkills } from '../context/SkillsContext';
 
 export function SocialLinks() {
   const { career, loading } = useCareer();
+  const { skills } = useSkills();
   const { isEnUs } = useUserPreferences();
   const [showPdf, setShowPdf] = useState(false);
 
@@ -60,7 +62,7 @@ export function SocialLinks() {
             <div className="flex-grow">
               {!loading ? (
                 <PDFViewer className="w-full h-full">
-                  <MyDocument career={career} isEnUs={isEnUs} />
+                  <MyDocument skills={skills} career={career} isEnUs={isEnUs} />
                 </PDFViewer>
               ) : (
                 <div className="flex justify-center items-center h-full">
@@ -71,7 +73,13 @@ export function SocialLinks() {
             <div className="mt-4 text-center">
               {!loading && (
                 <PDFDownloadLink
-                  document={<MyDocument career={career} isEnUs={isEnUs} />}
+                  document={
+                    <MyDocument
+                      skills={skills}
+                      career={career}
+                      isEnUs={isEnUs}
+                    />
+                  }
                   fileName="alice_lopes_cv.pdf"
                   className="px-4 py-2 bg-primary text-white rounded inline-block no-underline hover:bg-opacity-90"
                 >

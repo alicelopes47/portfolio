@@ -70,4 +70,5 @@ export interface CareerType {
   dateUs: string;
   finaldescriptionUs: string;
   description?: string;
+  shouldrenderonpdf?: boolean;
 }

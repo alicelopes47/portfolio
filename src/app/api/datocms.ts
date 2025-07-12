@@ -73,6 +73,7 @@ const EXPERIENCE_CONTENT = `
     finaldescription
     categoryicon
     description
+    shouldrenderonpdf
     }
   }
 `;
@@ -87,6 +88,7 @@ const EXPERIENCE_CONTENT_US = `
       categoryicon
       finaldescriptionUs
       description
+      shouldrenderonpdf
     }
   }
 `;
