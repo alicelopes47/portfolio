@@ -17,6 +17,7 @@ export enum hrefs {
   SKILLS = 'skills',
   CAREER = 'career',
   PROJECTS = 'projects',
+  ABOUT = 'about',
 }
 
 export type ThemeTypes = 'light' | 'dark';
