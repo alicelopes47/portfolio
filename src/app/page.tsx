@@ -7,7 +7,7 @@ import Career from './sections/Career';
 import { useEffect, useState } from 'react';
 import { linksPtArray, linksUsArray, hrefsArray } from './Domain';
 import { SocialLinks } from './components/SocialLinks';
-import SkillsPage from './sections/Skills';
+import SkillsPage from './sections/skills';
 import AOS from 'aos';
 import useIsMobile from './utils/UseIsMobile';
 import DropDown from './components/DropDown';
