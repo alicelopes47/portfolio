@@ -15,9 +15,12 @@ import { useCareer } from '../context/CareerContext';
 import { useUserPreferences } from '../context/UserPreferencesProvider.tsx';
 import MyDocument from './Curriculum';
 import { useSkills } from '../context/SkillsContext';
+import { useAmplitudeContext } from '../context/AmplitudeContext';
 
 export function SocialLinks() {
   const { career, loading } = useCareer();
+  const { trackAmplitudeEvent } = useAmplitudeContext();
+
   const { skills } = useSkills();
   const { isEnUs } = useUserPreferences();
   const [showPdf, setShowPdf] = useState(false);
@@ -44,6 +47,9 @@ export function SocialLinks() {
             event.preventDefault();
             event.stopPropagation();
             setShowPdf(true);
+            trackAmplitudeEvent('clicked', {
+              text: 'Um usuário clicou para ver o currículo!',
+            });
           }}
           icon={<LiaFileArchive className="md:text-4xl text-3xl text-icons" />}
           message="Currículo"

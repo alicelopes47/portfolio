@@ -18,15 +18,20 @@ import { useLoading } from './context/LoadingProvider';
 import Loading from './loading';
 import { useUserPreferences } from './context/UserPreferencesProvider.tsx';
 import About from './sections/About';
+import { useAmplitudeContext } from '../app/context/AmplitudeContext';
 
 export default function Home() {
   const isMobile = useIsMobile();
+  const { trackAmplitudeEvent } = useAmplitudeContext();
   const { theme, setTheme, isEnUs } = useUserPreferences();
   const { loading } = useLoading();
   let [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     AOS.init();
+    trackAmplitudeEvent('viewed', {
+      text: 'Um usuário visualizou a página inicial',
+    });
   }, []);
 
   useEffect(() => {
@@ -79,8 +84,8 @@ export default function Home() {
         <Career />
         <Divider />
         <Projects isEnUs={isEnUs} />
-        <Divider />
-        <About isEnUs={isEnUs} />
+        {/* <Divider />
+        <About isEnUs={isEnUs} /> */}
       </main>
     </>
   );

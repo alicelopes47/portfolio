@@ -5,6 +5,7 @@ import { LoadingProvider } from './context/LoadingProvider';
 import { UserPreferencesProvider } from './context/UserPreferencesProvider.tsx';
 import { CareerProvider } from './context/CareerContext';
 import { SkillsProvider } from './context/SkillsContext';
+import { AmplitudeContextProvider } from './context/AmplitudeContext';
 
 export const metadata = {
   title: 'Alice Lopes',
@@ -20,13 +21,15 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`bg-hexagonPattern`}>
-        <LoadingProvider>
-          <UserPreferencesProvider>
-            <CareerProvider>
-              <SkillsProvider>{children}</SkillsProvider>
-            </CareerProvider>
-          </UserPreferencesProvider>
-        </LoadingProvider>
+        <AmplitudeContextProvider>
+          <LoadingProvider>
+            <UserPreferencesProvider>
+              <CareerProvider>
+                <SkillsProvider>{children}</SkillsProvider>
+              </CareerProvider>
+            </UserPreferencesProvider>
+          </LoadingProvider>
+        </AmplitudeContextProvider>
       </body>
     </html>
   );
