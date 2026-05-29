@@ -5,6 +5,7 @@ import { LoadingProvider } from './context/LoadingProvider';
 import { UserPreferencesProvider } from './context/UserPreferencesProvider.tsx';
 import { CareerProvider } from './context/CareerContext';
 import { SkillsProvider } from './context/SkillsContext';
+import { WorkExperienceProvider } from './context/WorkExperienceContext';
 import { AmplitudeContextProvider } from './context/AmplitudeContext';
 
 export const metadata = {
@@ -25,7 +26,9 @@ export default function RootLayout({
           <LoadingProvider>
             <UserPreferencesProvider>
               <CareerProvider>
-                <SkillsProvider>{children}</SkillsProvider>
+                <SkillsProvider>
+                  <WorkExperienceProvider>{children}</WorkExperienceProvider>
+                </SkillsProvider>
               </CareerProvider>
             </UserPreferencesProvider>
           </LoadingProvider>

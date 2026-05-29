@@ -1,29 +1,20 @@
 import { LiaGithub, LiaLinkedin, LiaFileArchive } from 'react-icons/lia';
 import { LinkWithAlert } from './LinkWithAlert';
-import { useState } from 'react';
-import {
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  PDFViewer,
-  PDFDownloadLink,
-} from './pdf-client';
-import { CareerType } from '../Domain';
-import { useCareer } from '../context/CareerContext';
+import { PDFViewer, PDFDownloadLink } from './pdf-client';
+import { useWorkExperience } from '../context/WorkExperienceContext';
 import { useUserPreferences } from '../context/UserPreferencesProvider.tsx';
 import MyDocument from './Curriculum';
-import { useSkills } from '../context/SkillsContext';
 import { useAmplitudeContext } from '../context/AmplitudeContext';
 
-export function SocialLinks() {
-  const { career, loading } = useCareer();
-  const { trackAmplitudeEvent } = useAmplitudeContext();
+interface SocialLinksProps {
+  showPdf: boolean;
+  setShowPdf: (value: boolean) => void;
+}
 
-  const { skills } = useSkills();
+export function SocialLinks({ showPdf, setShowPdf }: SocialLinksProps) {
+  const { experiences, loading } = useWorkExperience();
+  const { trackAmplitudeEvent } = useAmplitudeContext();
   const { isEnUs } = useUserPreferences();
-  const [showPdf, setShowPdf] = useState(false);
 
   return (
     <>
@@ -68,7 +59,7 @@ export function SocialLinks() {
             <div className="flex-grow">
               {!loading ? (
                 <PDFViewer className="w-full h-full">
-                  <MyDocument skills={skills} career={career} isEnUs={isEnUs} />
+                  <MyDocument experiences={experiences} isEnUs={isEnUs} />
                 </PDFViewer>
               ) : (
                 <div className="flex justify-center items-center h-full">
@@ -81,8 +72,7 @@ export function SocialLinks() {
                 <PDFDownloadLink
                   document={
                     <MyDocument
-                      skills={skills}
-                      career={career}
+                      experiences={experiences}
                       isEnUs={isEnUs}
                     />
                   }
