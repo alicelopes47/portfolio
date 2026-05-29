@@ -13,7 +13,7 @@ import AOS from 'aos';
 import useIsMobile from './utils/UseIsMobile';
 import DropDown from './components/DropDown';
 import 'rsuite/Toggle/styles/index.css';
-import Hero from './sections/Hero';
+import Hero from './sections/hero';
 import { Divider } from './ui/divider';
 import { useLoading } from './context/LoadingProvider';
 import Loading from './loading';
