@@ -1,5 +1,6 @@
 export enum LinksPT {
   HOME = 'Início',
+  EXPERIENCE = 'Experiências',
   SKILLS = 'Habilidades',
   CAREER = 'Carreira',
   PROJECTS = 'Projetos',
@@ -7,6 +8,7 @@ export enum LinksPT {
 
 export enum LinksUS {
   HOME = 'Home',
+  EXPERIENCE = 'Experience',
   SKILLS = 'Skills',
   CAREER = 'Career',
   PROJECTS = 'Projects',
@@ -14,6 +16,7 @@ export enum LinksUS {
 
 export enum hrefs {
   HOME = 'home',
+  EXPERIENCE = 'experience',
   SKILLS = 'skills',
   CAREER = 'career',
   PROJECTS = 'projects',
@@ -72,4 +75,17 @@ export interface CareerType {
   finaldescriptionUs: string;
   description?: string;
   shouldrenderonpdf?: boolean;
+}
+
+export interface WorkExperienceType {
+  id: string;
+  company: string;
+  role: string;
+  roleus: string;
+  period: string;
+  periodus: string;
+  startdate: string;
+  responsibilities: string[];
+  responsibilitieus: string[];
+  techstack?: string[];
 }

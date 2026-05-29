@@ -4,6 +4,7 @@ const kodchasan = Kodchasan({ subsets: ['latin'], weight: ['200'] });
 import Projects from './sections/Projects';
 import { Menu } from './components/Menu';
 import Career from './sections/Career';
+import Experience from './sections/Experience';
 import { useEffect, useState } from 'react';
 import { linksPtArray, linksUsArray, hrefsArray } from './Domain';
 import { SocialLinks } from './components/SocialLinks';
@@ -25,7 +26,8 @@ export default function Home() {
   const { trackAmplitudeEvent } = useAmplitudeContext();
   const { theme, setTheme, isEnUs } = useUserPreferences();
   const { loading } = useLoading();
-  let [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('home');
+  const [showPdf, setShowPdf] = useState(false);
 
   useEffect(() => {
     AOS.init();
@@ -76,8 +78,13 @@ export default function Home() {
             links={isEnUs ? linksUsArray : linksPtArray}
           />
         )}
-        <SocialLinks />
-        <Hero isEnUs={isEnUs} />
+        <SocialLinks showPdf={showPdf} setShowPdf={setShowPdf} />
+        <Hero isEnUs={isEnUs} onOpenCurriculum={() => {
+          setShowPdf(true);
+          trackAmplitudeEvent('clicked', { text: 'Um usuário clicou para ver o currículo!' });
+        }} />
+        <Divider />
+        <Experience />
         <Divider />
         <SkillsPage isEnUs={isEnUs} />
         <Divider />

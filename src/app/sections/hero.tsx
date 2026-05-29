@@ -3,6 +3,7 @@ import { HeroTypes, SectionProps, hrefs } from '../Domain'
 import { performRequest } from '../../../lib/datocms'
 import { useEffect, useState } from 'react'
 import { useUserPreferences } from '../context/UserPreferencesProvider.tsx'
+import { LiaFileArchive } from 'react-icons/lia'
 
 const HERO_PT = `
   query Hero {
@@ -25,7 +26,11 @@ async function fetchHeroSection(isEnUs: boolean) {
 	return response.hero
 }
 
-function Hero({ isEnUs }: SectionProps) {
+interface HeroProps extends SectionProps {
+  onOpenCurriculum: () => void;
+}
+
+function Hero({ isEnUs, onOpenCurriculum }: HeroProps) {
 	const [hero, setHero] = useState<HeroTypes | null>(null)
 	const { theme } = useUserPreferences()
 
@@ -63,6 +68,14 @@ function Hero({ isEnUs }: SectionProps) {
 			>
 				{hero?.subtitlePt || hero?.subtitleUs}
 			</h1>
+			<button
+				onClick={onOpenCurriculum}
+				data-aos='fade-up'
+				className='flex items-center gap-3 px-8 py-4 rounded-2xl border-2 border-primaryBold text-primaryBold text-xl font-semibold hover:bg-primaryBold hover:text-darkText transition-all duration-300'
+			>
+				<LiaFileArchive className='text-2xl' />
+				{isEnUs ? 'View Resume' : 'Ver Currículo'}
+			</button>
 		</div>
 	)
 }

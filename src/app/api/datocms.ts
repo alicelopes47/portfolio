@@ -1,7 +1,12 @@
 'use server';
 
 import { performRequest } from '../../../lib/datocms';
-import { ProjectsType, SkillsType, CareerType } from '../Domain';
+import {
+  ProjectsType,
+  SkillsType,
+  CareerType,
+  WorkExperienceType,
+} from '../Domain';
 
 const PROJECTS_CONTENT = `
   query Projects {
@@ -112,4 +117,28 @@ export async function fetchCareer(isEnUs: boolean) {
     query: isEnUs ? EXPERIENCE_CONTENT_US : EXPERIENCE_CONTENT,
   });
   return response.allCareers as CareerType[];
+}
+
+const WORK_EXPERIENCE_CONTENT = `
+  query WorkExperience {
+    allWorkExperiences(orderBy: startdate_DESC) {
+      id
+      company
+      role
+      roleus
+      period
+      periodus
+      startdate
+      responsibilities
+      responsibilitieus
+      techstack
+    }
+  }
+`;
+
+export async function fetchWorkExperience() {
+  const response = await performRequest({
+    query: WORK_EXPERIENCE_CONTENT,
+  });
+  return response.allWorkExperiences as WorkExperienceType[];
 }
