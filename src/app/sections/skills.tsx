@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { LinksPT, LinksUS, SectionProps, SkillsType, hrefs } from '../Domain';
 import { FontIcon } from '../components/FontIcon';
-import { Meteors } from '../ui/Meteors';
+import { Meteors } from '../ui/meteors';
 import { fetchSkills } from '../api/datocms';
-import { Loader } from '../ui/Loader';
+import { Loader } from '../ui/loader';
 import useIsMobile from '../utils/UseIsMobile';
 import { useUserPreferences } from '../context/UserPreferencesProvider.tsx';
 import { useSkills } from '../context/SkillsContext';
