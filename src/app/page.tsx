@@ -79,11 +79,15 @@ export default function Home() {
           />
         )}
         <SocialLinks showPdf={showPdf} setShowPdf={setShowPdf} />
-        <Hero isEnUs={isEnUs} onOpenCurriculum={() => {
-          setShowPdf(true);
-          trackAmplitudeEvent('clicked', { text: 'Um usuário clicou para ver o currículo!' });
-        }} />
-        <Divider />
+        <Hero
+          isEnUs={isEnUs}
+          onOpenCurriculum={() => {
+            setShowPdf(true);
+            trackAmplitudeEvent('clicked', {
+              text: 'Um usuário clicou para ver o currículo!',
+            });
+          }}
+        />
         <Experience />
         <Divider />
         <SkillsPage isEnUs={isEnUs} />
