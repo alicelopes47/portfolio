@@ -1,6 +1,6 @@
 'use client';
 
-import { Document, Page, Text, View, StyleSheet } from './pdf-client';
+import { Document, Page, Text, View, StyleSheet, Link } from './pdf-client';
 import { WorkExperienceType } from '../Domain';
 
 const styles = StyleSheet.create({
@@ -118,6 +118,16 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
     color: '#333333',
   },
+  contactRow: {
+    flexDirection: 'row',
+    gap: 16,
+    marginTop: 4,
+  },
+  contactLink: {
+    fontSize: 11,
+    color: '#CF96DF',
+    textDecoration: 'none',
+  },
 });
 
 interface MyDocumentProps {
@@ -143,12 +153,17 @@ const MyDocument = ({ experiences, isEnUs }: MyDocumentProps) => {
     <Document>
       <Page size="A4" style={styles.page} wrap={false}>
         <View style={styles.header}>
-          <Text style={styles.title}>Alice Lopes</Text>
+          <Text style={styles.title}>Alice Lopes da Silva</Text>
           <Text style={styles.headerSubtitle}>
             {isEnUs
               ? 'Pleno Frontend Developer'
               : 'Desenvolvedora Frontend Pleno'}
           </Text>
+          <View style={styles.contactRow}>
+            <Link src="https://wa.me/5561992718410" style={styles.contactLink}>
+              WhatsApp: +55 (61) 99271-8410
+            </Link>
+          </View>
         </View>
 
         <View style={styles.divider} />

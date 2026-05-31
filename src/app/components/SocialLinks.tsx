@@ -1,4 +1,5 @@
 import { LiaGithub, LiaLinkedin, LiaFileArchive } from 'react-icons/lia';
+import { IoLogoWhatsapp } from 'react-icons/io';
 import { LinkWithAlert } from './LinkWithAlert';
 import { PDFViewer, PDFDownloadLink } from './pdf-client';
 import { useWorkExperience } from '../context/WorkExperienceContext';
@@ -31,6 +32,11 @@ export function SocialLinks({ showPdf, setShowPdf }: SocialLinksProps) {
           href="https://github.com/alicelopes47"
           icon={<LiaGithub className="md:text-4xl text-3xl text-icons" />}
           message="Github"
+        />
+        <LinkWithAlert
+          href="https://wa.me/5561992718410"
+          icon={<IoLogoWhatsapp className="md:ml-1 text-3xl text-icons" />}
+          message="WhatsApp"
         />
         <LinkWithAlert
           href="#curriculum"
@@ -71,10 +77,7 @@ export function SocialLinks({ showPdf, setShowPdf }: SocialLinksProps) {
               {!loading && (
                 <PDFDownloadLink
                   document={
-                    <MyDocument
-                      experiences={experiences}
-                      isEnUs={isEnUs}
-                    />
+                    <MyDocument experiences={experiences} isEnUs={isEnUs} />
                   }
                   fileName="alice_lopes_cv.pdf"
                   className="px-4 py-2 bg-primary text-white rounded inline-block no-underline hover:bg-opacity-90"
