@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   contactLink: {
     fontSize: 11,
     color: '#CF96DF',
-    textDecoration: 'none',
+    textDecoration: 'underline',
   },
 });
 
